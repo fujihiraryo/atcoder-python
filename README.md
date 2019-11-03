@@ -8,7 +8,7 @@ $ ./start.sh ABC123
 
 ## コードテスト
 ```
-$ python3 make_sample.py
+$ python3 make_sample.py > sample.txt
 $ python3 ABC123/A.py < sample.txt
 ```
 
