@@ -1,5 +1,3 @@
-# atcoder
-
 ```
 $ ./start.sh ABC123
 ```
