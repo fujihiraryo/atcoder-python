@@ -11,3 +11,8 @@ $ ./start.sh ABC123
 $ python3 make_sample.py
 $ python3 ABC123/A.py < sample.txt
 ```
+
+## 実行時間測定
+```
+$ time python3 ABC123/A.py < sample.txt
+```
