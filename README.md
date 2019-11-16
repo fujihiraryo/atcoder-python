@@ -11,7 +11,7 @@
 ## コードテスト
 
 ```bash
-python3 make_sample.py > sample.txt
+python3 sample.py > sample.txt
 python3 ABC123/A.py < sample.txt
 ```
 
