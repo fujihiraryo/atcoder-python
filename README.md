@@ -20,3 +20,9 @@ python3 ABC123/A.py < sample.txt
 ```bash
 time python3 ABC123/A.py < sample.txt
 ```
+
+## git push
+
+```bash
+./git_push.sh ABC123
+```
