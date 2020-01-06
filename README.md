@@ -1,6 +1,6 @@
 # Atcoder with Python
 
-https://kenkoooo.com/atcoder/#/table/fjhr
+https://kenkoooo.com/atcoder/#/user/fjhr
 
 ## 開始
 
