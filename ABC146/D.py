@@ -6,30 +6,36 @@ for n in range(N-1):
     E.append((a-1,b-1))
     G[a-1].append(b-1)
     G[b-1].append(a-1)
-deg=[len(v) for v in G]
-K=max(deg)
-Q=G[0]
-v0=0
-X=[v0]
-C=[0]*N
-color={}
-print(G)
-while Q!=[]:
-    v1=Q.pop(0)
-    colors=list(range(1,K+1))
-    if C[v0] in colors:
-        colors.remove(C[v0])
-    for child in G[v0]:
-        if C[child] in colors:
-            colors.remove(C[child])
-    C[v1]=min(colors)
-    color[(min(v0,v1),max(v0,v1))]=C[v1]
-    X.append(v1)
-    for w in G[v1]:
-        if w not in X:
-            Q.append(w)
-    v0=v1
+K=max([len(v) for v in G])
+
+P=[-1]*N
+Q=[0]
+X=[]
+count=0
+while Q:
+    v=Q.pop()
+    X.append(v)
+    for u in G[v]:
+        if u==P[v]:
+            continue
+        P[u]=v
+        Q.append(u)
+
+C={}
+for v in X:
+    color=0
+    try:
+        p_color=C[min(v,P[v]),max(v,P[v])]
+    except:
+        p_color=-1
+    for u in G[v]:
+        if u==P[v]:
+            continue
+        if color==p_color:
+            color+=1
+        C[min(u,v),max(u,v)]=color
+        color+=1
+
 print(K)
-print(color)
-# for e in E:
-#     print(color[e])
+for e in E:
+    print(C[e]+1)
