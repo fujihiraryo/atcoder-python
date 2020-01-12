@@ -10,8 +10,11 @@ def f(x):
 left = 0.1
 right = 2
 while right - left > 0.0001:
-    if f(left) <= f(right):
-        right = left + (right - left) * (2 / 3)
+    left_ = left + (right - left) * (1 / 3)
+    right_ = left + (right - left) * (2 / 3)
+    if f(left_) <= f(right_):
+        right = right_
     else:
-        left = left + (right - left) * (1 / 3)
-print((left+right)/2, f((left+right)/2))
+        left = left_
+x = (left + right) / 2
+print(x, f(x))
