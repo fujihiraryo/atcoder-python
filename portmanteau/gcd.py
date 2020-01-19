@@ -1,7 +1,5 @@
+import fractions
+
+
 def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return gcd(a, b)
-
-
-print(gcd(1000000, 99999))
+    return fractions.gcd(a, b)
