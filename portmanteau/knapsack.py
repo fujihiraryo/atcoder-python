@@ -3,7 +3,7 @@ N M
 V[0] W[0]
 ...
 V[N-1] W[N-1]
-という入力が与えられたとき, 
+という入力が与えられたとき,
 Wの合計がMを超えないようにVの合計を最大化する.
 """
 
@@ -20,9 +20,6 @@ dp = [[0 for w in range(M + 1)] for n in range(N + 1)]
 
 for n in range(N):
     for m in range(M+1):
-        if W[n] > m:
-            dp[n + 1][m] = dp[n][m]
-        else:
-            dp[n + 1][m] = max(dp[n][m], dp[n][m - W[n]] + V[n])
+        dp[n + 1][m] = max(dp[n][m], dp[n][max(m - W[n], 0)] + V[n])
 
 print(dp[N][M])
