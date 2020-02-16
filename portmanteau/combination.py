@@ -3,7 +3,10 @@ pが素数で、入力が
 n r p
 で与えられたときnCrをmod pで計算する
 """
-n, r, p = map(int, input().split())
+
+n, r, p = 100, 50, 10**9+7
+
+
 g1 = [1, 1]
 g2 = [1, 1]
 inverse = [0, 1]
@@ -13,9 +16,9 @@ for i in range(2, n + 1):
     inverse.append((-inverse[p % i] * (p//i)) % p)
     g2.append((g2[-1] * inverse[-1]) % p)
 
-print(g1)
-print(g2)
-print(inverse)
+# print(g1)
+# print(g2)
+# print(inverse)
 
 
 def cmb(n, r, p):
