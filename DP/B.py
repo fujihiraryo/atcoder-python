@@ -1,4 +1,5 @@
-N, K = int(input()), 2
+N, K = map(int, input().split())
+K = min(N, K)
 *h, = map(int, input().split())
 a = [abs(h[0] - h[k]) for k in range(K)]
 for n in range(N - K):
