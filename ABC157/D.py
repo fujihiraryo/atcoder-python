@@ -32,14 +32,23 @@ class UnionFind():
         return self.root(x) == self.root(y)
 
 
-N, Q = map(int, input().split())
-forest = UnionFind(N)
-for q in range(Q):
-    P, A, B = map(int, input().split())
-    if P == 0:
-        forest.union(A, B)
-    if P == 1:
-        if forest.same(A, B):
-            print('Yes')
-        else:
-            print('No')
+N, M, K = map(int, input().split())
+tree = UnionFind(N)
+# 同じグループでの友達の数とブロックの数
+F, B = [0] * N, [0] * N
+lst = []
+for m in range(M):
+    a, b = map(int, input().split())
+    tree.union(a - 1, b - 1)
+    lst.append((a, b))
+for a, b in lst:
+    if tree.same(a - 1, b - 1):
+        F[a - 1] += 1
+        F[b - 1] += 1
+for k in range(K):
+    c, d = map(int, input().split())
+    if tree.same(c - 1, d - 1):
+        B[c - 1] += 1
+        B[d - 1] += 1
+# nが属する木の大きさから友達の数とブロックの数と自分を除いたのが答え
+print(*[tree.size(n) - F[n] - B[n] - 1 for n in range(N)])

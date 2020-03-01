@@ -30,16 +30,3 @@ class UnionFind():
 
     def same(self, x, y):
         return self.root(x) == self.root(y)
-
-
-N, Q = map(int, input().split())
-forest = UnionFind(N)
-for q in range(Q):
-    P, A, B = map(int, input().split())
-    if P == 0:
-        forest.union(A, B)
-    if P == 1:
-        if forest.same(A, B):
-            print('Yes')
-        else:
-            print('No')
