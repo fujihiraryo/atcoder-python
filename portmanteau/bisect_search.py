@@ -4,6 +4,7 @@ import time
 import numpy as np
 N = 10000000
 A = [0] * N + [1] * N
+A = np.array(A)
 
 start = time.time()
 x = bisect.bisect_left(A, 1)

@@ -1,5 +1,6 @@
 def sieve(n):
     X = list(range(2, n + 1))
+    # fは数字と最小の素因数の対応
     f = {}
     while X[0] <= n ** 0.5:
         tmp = X[0]
@@ -17,6 +18,7 @@ def sieve(n):
 
 
 def factorize(n):
+    # 素因数分解 6桁くらいまでは一瞬
     f = sieve(n)
     tmp = n
     g = {}
@@ -31,3 +33,6 @@ def factorize(n):
     except:
         g[tmp] = 1
     return g
+
+
+print(factorize(100331))

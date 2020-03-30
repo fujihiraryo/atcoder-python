@@ -7,8 +7,8 @@ n r p
 n, r, p = 100, 50, 10**9+7
 
 
-g1 = [1, 1]
-g2 = [1, 1]
+g1 = [1, 1]  # 階乗テーブル
+g2 = [1, 1]  # 逆元テーブル
 
 for i in range(2, n + 1):
     g1.append((g1[-1] * i) % p)
@@ -21,5 +21,8 @@ def cmb(n, r, p):
     return g1[n] * g2[r] * g2[n-r] % p
 
 
+print(g1)
+print(g2)
+print((g1[10]*g2[10]) % p)
 print(cmb(n, r, p))
 print(cmb(6, 3, p))
