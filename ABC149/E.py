@@ -1,31 +1,53 @@
-import numpy as np
-
-N, M = map(int, input().split())
+n, m = map(int, input().split())
 *A, = map(int, input().split())
-A = np.sort(np.array(A))
-l, r = 0, 2*(10**5)+1
-while r-l > 1:
-    c = (l+r)//2
-    # A[i]+A[j]<cとなる(i,j)の個数
-    K = np.searchsorted(A, c-A, side='left').sum()
-    if K < N**2 - M:
-        l = c
+A.sort()
+
+# Aの累積和を求めておく
+S = [0]
+x = 0
+for a in A:
+    x += a
+    S.append(x)
+
+
+def lower(x):
+    # A[i]<xなるiの個数
+    left = -1
+    right = n
+    while right-left > 1:
+        mid = (left+right)//2
+        if A[mid] < x:
+            left = mid
+        else:
+            right = mid
+    return right
+
+
+def lower_pair(x):
+    # A[i]+A[j]<xなる(i,j)の個数
+    cnt = 0
+    for a in A:
+        cnt += lower(x-a)
+    return cnt
+
+
+# A[i]+A[j]のm番目に大きい値を求める
+# lower_pair(x)<n**2-mなる最大のxを求めればよい
+left = 2*min(A)
+right = 2*max(A)
+while right-left > 1:
+    mid = (left+right)//2
+    if lower_pair(mid) < n**2-m:
+        left = mid
     else:
-        r = c
-# 和がr以上のペアの和の合計を求める
-ans = 0
-j = 0
-# S:Aの累積和
-S = np.cumsum(A)
-I = np.searchsorted(A, r-A, side='left')
-print(r)
-print(A)
-print(S)
-print(I)
-for i in range(N):
-    ans += (N-I[i])*A[i]
-    if I[i] == 0:
-        ans += S[N-1]
-    elif I[i] < N:
-        ans += S[N-1]-S[I[i]-1]
-print(ans)
+        right = mid
+x = left
+
+# A[i]+A[j]>=xとなる(i,j)の個数とA[i]+A[j]の総和を求める
+k = n**2-lower_pair(x)
+s = 0
+for a in A:
+    cnt = lower(x-a)
+    s += (n-cnt)*a+S[n]-S[cnt]
+
+print(s-(k-m)*x)
