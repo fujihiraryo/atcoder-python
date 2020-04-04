@@ -14,10 +14,10 @@ D0.remove(1)
 D1.remove(1)
 cnt = 0
 for d in D0:
-    n_ = n
-    while n_ % d == 0:
-        n_ = n_//d
-    if n_ % d == 1:
+    tmp = n
+    while tmp % d == 0:
+        tmp = tmp // d
+    if tmp % d == 1:
         cnt += 1
 cnt += len(D1)
 print(cnt)
