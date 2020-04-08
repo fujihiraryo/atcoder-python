@@ -1,16 +1,15 @@
-import copy
-N, M = map(int, input().split())
+n, m = map(int, input().split())
 W, V = [], []
-for n in range(N):
+for i in range(n):
     w, v = map(int, input().split())
     W.append(w)
     V.append(v)
-# f[m]=m以下の重さで最大の価値
-f = [0 for m in range(M + 1)]
-for n in range(N):
-    f_ = copy.copy(f)
-    for m in range(M + 1):
-        if m >= W[n]:
-            f_[m] = max(f[m], f[m - W[n]] + V[n])
-    f = f_
-print(f[M])
+A = [0 for j in range(m+1)]
+for i in range(n):
+    B = []
+    for j in range(W[i]):
+        B.append(A[j])
+    for j in range(W[i], m+1):
+        B.append(max(A[j], A[j-W[i]]+V[i]))
+    A = B
+print(A[m])

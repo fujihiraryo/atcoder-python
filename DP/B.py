@@ -1,7 +1,9 @@
-N, K = map(int, input().split())
-K = min(N, K)
-*h, = map(int, input().split())
-a = [abs(h[0] - h[k]) for k in range(K)]
-for n in range(N - K):
-    a = a[1:] + [min([a[k] + abs(h[n + k] - h[n + K]) for k in range(K)])]
-print(a[K - 1])
+n, k = map(int, input().split())
+*H, = map(int, input().split())
+X = [0]
+for i in range(1, n):
+    x = 1 << 30
+    for j in range(1, min(i, k)+1):
+        x = min(x, X[i-j]+abs(H[i]-H[i-j]))
+    X.append(x)
+print(X[n-1])

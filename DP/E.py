@@ -1,19 +1,20 @@
-inf = 10**10
-N, M = map(int, input().split())
+n, m = map(int, input().split())
 W, V = [], []
-for n in range(N):
+for i in range(n):
     w, v = map(int, input().split())
     W.append(w)
     V.append(v)
-X = sum(V)
-f = [inf for x in range(X + 1)]
-f[0] = 0
-for n in range(N):
-    f = [
-        min(f[x], f[x - V[n]] + W[n]) if x >= V[n] else f[x]
-        for x in range(X + 1)
-    ]
-for x in range(X + 1)[::-1]:
-    if f[x] <= M:
-        print(x)
+sumV = sum(V)
+A = [1 << 30 for j in range(sumV+1)]
+A[0] = 0
+for i in range(n):
+    B = []
+    for j in range(V[i]):
+        B.append(A[j])
+    for j in range(V[i], sumV+1):
+        B.append(min(A[j], A[j-V[i]]+W[i]))
+    A = B
+for j in range(sumV, 0, -1):
+    if A[j] <= m:
+        print(j)
         exit()
