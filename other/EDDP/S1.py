@@ -1,27 +1,25 @@
 n = int(input())
 d = int(input())
 p = 10**9+7
+if d == 1:
+    print(n % p)
+    exit()
 N = [int(i) for i in list(str(n))]
-DP = [[[0 for j in range(d)]for i in range(len(N))] for _ in range(2)]
-for i in range(len(N)):
-    if i == 0:
-        for j in range(d):
-            for k in range(N[i]):
-                if k % d == j:
-                    DP[0][i][j] += 1
-                    DP[1][i][j] += 1
-            if N[i] % d == j:
-                DP[1][i][j] += 1
-    else:
-        for j in range(d):
-            for k in range(N[i]):
-                DP[0][i][j] += DP[1][i-1][(j-k) % d]
-            for k in range(N[i], 10):
-                DP[0][i][j] += DP[0][i-1][(j-k) % d]
-            for k in range(N[i]+1):
-                DP[1][i][j] += DP[1][i-1][(j-k) % d]
-            for k in range(N[i]+1, 10):
-                DP[1][i][j] += DP[1][i-1][(j-k) % d]
-print(DP[1][-1][0]-1)
-print(DP[0][0])
-print(DP[1][0])
+DP0 = [0] * d
+DP1 = [0] * d
+DP1[0] += 1
+for i in N:
+    DP0_ = [0] * d
+    DP1_ = [0] * d
+    for r in range(d):
+        for j in range(i):
+            DP0_[r] += DP1[(r-j) % d]
+            DP1_[r] += DP1[(r-j) % d]
+        DP0_[r] += DP0[(r-i) % d]
+        DP1_[r] += DP1[(r-i) % d]
+        for j in range(i+1, 10):
+            DP0_[r] += DP0[(r-j) % d]
+            DP1_[r] += DP0[(r-j) % d]
+        DP0_[r], DP1_[r] = DP0_[r] % p, DP1_[r] % p
+    DP0, DP1 = DP0_, DP1_
+print((DP1[0]-1) % p)
