@@ -12,7 +12,7 @@ l = C[m][n]
 X = ''
 while l:
     if S[m-1] == T[n-1]:
-        X = S[m-1]+X
+        X = S[m-1] + X
         m -= 1
         n -= 1
         l -= 1
