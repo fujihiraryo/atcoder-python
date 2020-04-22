@@ -1,17 +1,29 @@
-def ok(l):
-    # 長さlの連続部分列で重ならずに2回以上現れるものがある
+import random
+
+
+def ok(k):
+    # 長さkの連続部分列で重ならずに2回以上現れるものがある
     D = {}
-    for i in range(n-l+1):
-        h = hash(S[i:i+l])
+    for i in range(n-k+1):
+        s = S[i:i+k]
         try:
-            if D[h] + l <= i:
+            if D[s]+k <= i:
                 return True
         except:
-            D[h] = i
+            D[s] = i
     return False
 
 
-S = 'abcdeaaaaaabcde'
-n = len(S)
-for l in range(1, n+1):
-    print(ok(l))
+# n = int(input())
+# S = input()
+n = 5*(10**3)
+S = ''.join([chr(97+(i % 26)) for i in range(n)])
+# 二分探索でTrueになる最大のkを求める
+l, r = 0, n+1
+while r-l > 1:
+    c = (l+r)//2
+    if ok(c):
+        l = c
+    else:
+        r = c
+print(l)

@@ -1,12 +1,13 @@
-def ok(l):
-    # 長さlの連続部分列で重ならずに2回以上現れるものがある
+def ok(k):
+    # 長さkの連続部分列で重ならずに2回以上現れるものがある
     D = {}
-    for i in range(n-l+1):
+    for i in range(n-k+1):
+        s = S[i:i+k]
         try:
-            if D[S[i:i+l]]+l <= i:
+            if D[s]+k <= i:
                 return True
         except:
-            D[S[i:i+l]] = i
+            D[s] = i
     return False
 
 
