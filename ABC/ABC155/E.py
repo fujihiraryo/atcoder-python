@@ -1,5 +1,5 @@
-N = [int(_) for _ in list(input())]
+n = [int(i) for i in list(input())]
 a, b = 0, 1
-for n in N:
-    a, b = min(a + n, b + 10 - n), min(a + (n + 1), b + 10 - (n + 1))
+for i in n:
+    a, b = min(a+i, b+10-i), min(a+(i+1), b+10-(i+1))
 print(a)
