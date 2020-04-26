@@ -1,22 +1,18 @@
-# n = int(input())
-# *A, = map(int, input().split())
-n = 4
-A = [10, 20, 30, 40]
-DP = [[None for r in range(n+1)] for l in range(n)]
+n = int(input())
+*A, = map(int, input().split())
 S = [0]
 for i in range(n):
     S.append(S[-1]+A[i])
+DP = [[None for j in range(n+1)] for i in range(n)]
 
 
-def dp(l, r):
-    # 区間[l,r)での最小コスト
-    if r <= l+1:
-        DP[l][r] = 0
-    if DP[l][r] != None:
-        return DP[l][r]
-    # S[r]-S[l]=sum(A[l:r])
-    DP[l][r] = S[r]-S[l]+min([dp(l, i)+dp(i, r) for i in range(l+1, r)])
-    return DP[l][r]
+def dp(i, j):
+    if j <= i+1:
+        return 0
+    if DP[i][j] != None:
+        return DP[i][j]
+    DP[i][j] = S[j]-S[i]+min([dp(i, k)+dp(k, j) for k in range(i+1, j)])
+    return DP[i][j]
 
 
 print(dp(0, n))

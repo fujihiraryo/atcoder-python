@@ -5,16 +5,14 @@ for j in range(m):
     x, y = map(int, input().split())
     G[x-1].append(y-1)
     I[y-1] += 1
-# Q:出発点の候補
-Q = [i for i in range(n) if I[i] == 0]
-# L[i]=iを終点とする最長パスの長さ
-L = [0 for i in range(n)]
+Q = [x for x in range(n) if I[x] == 0]
+L = [0 for x in range(n)]
 while Q:
-    i = Q.pop()
-    while G[i]:
-        j = G[i].pop()
-        I[j] -= 1
-        L[j] = max(L[j], L[i]+1)
-        if I[j] == 0:
-            Q.append(j)
+    x = Q.pop()
+    while G[x]:
+        y = G[x].pop()
+        I[y] -= 1
+        L[y] = max(L[y], L[x]+1)
+        if I[y] == 0:
+            Q.append(y)
 print(max(L))
