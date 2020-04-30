@@ -37,7 +37,7 @@ def count_pair(A, c):
 if __name__ == '__main__':
     A = [-2, -1, 0, 0, 1, 2, 3]
     N = len(A)
-    print(sorted([A[i]*A[j] for i in range(N-1) for j in range(i+1, N)]))
+    print(sorted([A[i] * A[j] for i in range(N - 1) for j in range(i + 1, N)]))
     # for c in [-1, 0, 1, 2]:
     #     print(count_pair(A, c))
     count_pair(A, 1)
