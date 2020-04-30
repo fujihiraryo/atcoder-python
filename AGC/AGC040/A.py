@@ -1,5 +1,3 @@
-import numpy as np
-
 S = input()
 L = []
 N = len(S)
@@ -10,7 +8,7 @@ else:
     S += '<>'
 
 index = 0
-for n in range(N+1):
+for n in range(N + 1):
     if S[n: n + 2] == '><':
         L.append(S[index: n + 1])
         index = n + 1
