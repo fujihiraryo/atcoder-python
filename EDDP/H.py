@@ -1,5 +1,5 @@
 h, w = map(int, input().split())
-p = 10**9+7
+p = 10**9 + 7
 S = []
 for i in range(h):
     S.append(list(input()))
@@ -21,5 +21,5 @@ for i in range(1, h):
         if S[i][j] == '#':
             A[i][j] = 0
         else:
-            A[i][j] = (A[i-1][j]+A[i][j-1]) % p
-print(A[h-1][w-1])
+            A[i][j] = (A[i - 1][j] + A[i][j - 1]) % p
+print(A[h - 1][w - 1])
