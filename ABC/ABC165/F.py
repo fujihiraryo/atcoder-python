@@ -9,17 +9,19 @@ for i in range(n - 1):
 inf = 10**10
 DP = [inf for i in range(n)]
 L = [0 for i in range(n)]
-Q = [(-1, 0, None)]
+V = [False for i in range(n)]
+Q = [(0, -1)]
 while Q:
-    p, x, a = Q.pop()
-    if x == -1:
-        DP[p] = a
-        continue
-    i = bisect.bisect_left(DP, A[x])
-    Q.append((i, -1, DP[i]))
-    DP[i] = A[x]
-    L[x] = bisect.bisect_left(DP, inf)
-    for y in G[x]:
-        if y != p:
-            Q.append((x, y, None))
+    x, a = Q.pop()
+    if a == -1:
+        V[x] = True
+        i = bisect.bisect_left(DP, A[x])
+        Q.append((i, DP[i]))
+        DP[i] = A[x]
+        L[x] = bisect.bisect_left(DP, inf)
+        for y in G[x]:
+            if not V[y]:
+                Q.append((y, -1))
+    else:
+        DP[x] = a
 print(*L, sep='\n')
