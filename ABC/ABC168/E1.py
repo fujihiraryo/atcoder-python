@@ -1,9 +1,9 @@
 from math import gcd
 n = int(input())
-XY = [tuple(map(int, input().split())) for i in range(n)]
 C = {}
 z = 0
-for x, y in XY:
+for i in range(n):
+    x, y = map(int, input().split())
     if x == 0 and y == 0:
         z += 1
         continue
