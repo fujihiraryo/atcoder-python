@@ -1,9 +1,8 @@
 a, b = input().split()
+print(int(a) * float(b))
+print(int(a) * int(float(b) * 100) // 100)
 a = int(a)
-b = b.split('.')
-b = int(b[0] + b[1])
-ans = str(a * b)
-if len(ans) <= 2:
-    print(0)
-else:
-    print(ans[:-2])
+b = int(b.replace('.', ''))
+print(a * b)
+print(a * b // 100)
+print(9.79 * 100)
