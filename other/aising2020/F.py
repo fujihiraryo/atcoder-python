@@ -5,22 +5,20 @@ k = 5
 class Lagrange:
     def __init__(self, lst):
         self.lst = lst
-        self.mod = mod
 
     def prd(self, j, x):
         tmp = 1
         for i, (xi, yi) in enumerate(self.lst):
             if j != i:
                 tmp *= (x - xi)
-                tmp %= self.mod
+                tmp %= mod
         return tmp
 
     def pln(self, x):
         tmp = 0
         for i, (xi, yi) in enumerate(self.lst):
-            tmp += yi * (self.prd(i, x) *
-                         pow(self.prd(i, xi), self.mod - 2, self.mod))
-            tmp %= self.mod
+            tmp += yi * (self.prd(i, x) * pow(self.prd(i, xi), mod - 2, mod))
+            tmp %= mod
         return tmp
 
 
@@ -43,8 +41,8 @@ def pln(n):
     return tmp
 
 
-lst_eve = [(i, pln(i)) for i in range(0, 2 * (3 * k + 1), 2)]
-lst_odd = [(i, pln(i)) for i in range(1, 2 * (3 * k + 1) + 1, 2)]
+lst_eve = [(i, pln(i)) for i in range(0, 6 * k + 1, 2)]
+lst_odd = [(i, pln(i)) for i in range(1, 6 * k + 2, 2)]
 
 lag_eve = Lagrange(lst_eve)
 lag_odd = Lagrange(lst_odd)
