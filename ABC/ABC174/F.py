@@ -26,7 +26,7 @@ def main():
     n, q = map(int, input().split())
     *C, = map(lambda x: int(x) - 1, input().split())
     P = [0] * n
-    N = [0] * n
+    N = [None] * n
     for i in range(n)[::-1]:
         if P[C[i]]:
             N[i] = P[C[i]]
@@ -37,12 +37,16 @@ def main():
         if F[C[i]] == 0:
             B.add(i, 1)
             F[C[i]] = 1
-    XY = sorted([(tuple(map(int, input().split())), j) for j in range(q)])
+    XY = [tuple(map(int, input().split())) for j in range(q)]
+    ids = list(range(q))
+    ids.sort(key=lambda j: XY[j][0])
     a = 0
     lst = [0] * q
-    for (x, y), j in XY:
+    for j in ids:
+        x, y = XY[j]
         for i in range(a, x - 1):
-            B.add(N[i], 1)
+            if N[i]:
+                B.add(N[i], 1)
         a = x - 1
         lst[j] = B.sum(y) - B.sum(x - 1)
     print(*lst, sep="\n")
