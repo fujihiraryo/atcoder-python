@@ -22,34 +22,30 @@ class BIT:
             tmp += tmp & -tmp
 
 
-def main():
-    n, q = map(int, input().split())
-    *C, = map(lambda x: int(x) - 1, input().split())
-    P = [0] * n
-    N = [None] * n
-    for i in range(n)[::-1]:
-        if P[C[i]]:
-            N[i] = P[C[i]]
-        P[C[i]] = i
-    F = [0] * n
-    B = BIT(n)
-    for i in range(n):
-        if F[C[i]] == 0:
-            B.add(i, 1)
-            F[C[i]] = 1
-    XY = [tuple(map(int, input().split())) for j in range(q)]
-    ids = list(range(q))
-    ids.sort(key=lambda j: XY[j][0])
-    a = 0
-    lst = [0] * q
-    for j in ids:
-        x, y = XY[j]
-        for i in range(a, x - 1):
-            if N[i]:
-                B.add(N[i], 1)
-        a = x - 1
-        lst[j] = B.sum(y) - B.sum(x - 1)
-    print(*lst, sep="\n")
-
-
-main()
+n, q = map(int, input().split())
+*C, = map(lambda x: int(x) - 1, input().split())
+P = [0] * n
+N = [None] * n
+for i in range(n)[::-1]:
+    if P[C[i]]:
+        N[i] = P[C[i]]
+    P[C[i]] = i
+F = [0] * n
+B = BIT(n)
+for i in range(n):
+    if F[C[i]] == 0:
+        B.add(i, 1)
+        F[C[i]] = 1
+XY = [tuple(map(int, input().split())) for j in range(q)]
+ids = list(range(q))
+ids.sort(key=lambda j: XY[j][0])
+a = 0
+lst = [0] * q
+for j in ids:
+    x, y = XY[j]
+    for i in range(a, x - 1):
+        if N[i]:
+            B.add(N[i], 1)
+    a = x - 1
+    lst[j] = B.sum(y) - B.sum(x - 1)
+print(*lst, sep="\n")
