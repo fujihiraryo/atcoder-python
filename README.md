@@ -6,17 +6,12 @@ https://kenkoooo.com/atcoder/#/user/fjhr
 
 ```bash
 ./start.sh ABC/ABC123
+cd ABC/ABC123
 ```
 
 ## コードテスト
 
 ```bash
-python3 ABC/ABC123/sample.py > ABC/ABC123/sample.txt
-time python3 ABC/ABC123/A.py < ABC/ABC123/sample.txt
-```
-
-## 終了
-
-```bash
-./finish.sh ABC/ABC123
+python3 sample.py > sample.txt
+time python3 A.py < sample.txt
 ```
