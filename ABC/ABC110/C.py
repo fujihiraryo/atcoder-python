@@ -5,7 +5,7 @@ def f(A):
     for a in A:
         try:
             dct[a]
-        except:
+        except BaseException:
             dct[a] = i
             i += 1
         B.append(dct[a])

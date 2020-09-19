@@ -8,7 +8,7 @@ def factrize(x):
         cnt = 0
         while tmp % i == 0:
             cnt += 1
-            tmp = tmp//i
+            tmp = tmp // i
         if cnt > 0:
             f[i] = cnt
         i += 1
@@ -24,10 +24,10 @@ def comb(n, r, p):
     return x % p
 
 
-p = 10**9+7
+p = 10**9 + 7
 n, m = map(int, input().split())
 A = list(factrize(m).values())
 ans = 1
 for a in A:
-    ans = (ans*comb(a+n-1, a, p)) % p
+    ans = (ans * comb(a + n - 1, a, p)) % p
 print(ans)
