@@ -1,8 +1,10 @@
 n = int(input())
-*A, = map(int, input().split())
+(*A,) = map(int, input().split())
 a, b, c = A.count(3), A.count(2), A.count(1)
-DP = [[[0.0 for k in range(a + b + c + 1)] for j in range(a + b + 1)]
-      for i in range(a + 1)]
+DP = [
+    [[0.0 for k in range(a + b + c + 1)] for j in range(a + b + 1)]
+    for i in range(a + 1)
+]
 for i in range(a + 1):
     for j in range(a + b + 1):
         for k in range(a + b + c + 1):

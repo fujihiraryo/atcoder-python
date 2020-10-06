@@ -1,5 +1,5 @@
 n, m = map(int, input().split())
-*H, = map(int, input().split())
+(*H,) = map(int, input().split())
 X = [1 for i in range(n)]
 for j in range(m):
     a, b = map(int, input().split())

@@ -1,5 +1,6 @@
 import bisect
-INF = 10**9
+
+INF = 10 ** 9
 n, m = map(int, input().split())
 X, Y = [-INF, 0, INF], [-INF, 0, INF]
 ABC, DEF = [], []
@@ -36,9 +37,9 @@ for raw in V:
     a = []
     for i in raw:
         if i == 1:
-            a.append('.')
+            a.append(".")
         else:
-            a.append(' ')
+            a.append(" ")
     print(*a)
 i = bisect.bisect_left(X, 0)
 j = bisect.bisect_left(Y, 0)
@@ -54,7 +55,7 @@ while Q:
                 V[i + di][j + dj] = 1
                 Q.append((i + di, j + dj))
         else:
-            print('INF')
+            print("INF")
             exit()
 print(ans)
 

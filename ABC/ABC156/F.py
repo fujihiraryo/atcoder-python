@@ -1,5 +1,5 @@
 K, Q = map(int, input().split())
-*D, = map(int, input().split())
+(*D,) = map(int, input().split())
 for q in range(Q):
     n, x, m = map(int, input().split())
     r = (n - 1) % K

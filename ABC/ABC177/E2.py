@@ -1,5 +1,5 @@
 n = int(input())
-*A, = map(int, input().split())
+(*A,) = map(int, input().split())
 
 m = max(A)
 is_prime = [True] * (m + 1)
@@ -23,11 +23,11 @@ for p in primes:
 try:
     score = max(Pmap.values())
 except BaseException:
-    print('pairwise coprime')
+    print("pairwise coprime")
     exit()
 if score == 1:
-    print('pairwise coprime')
+    print("pairwise coprime")
 elif score != n:
-    print('setwise coprime')
+    print("setwise coprime")
 else:
-    print('not coprime')
+    print("not coprime")

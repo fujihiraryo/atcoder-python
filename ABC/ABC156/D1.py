@@ -1,13 +1,13 @@
-class Comb0():
+class Comb0:
     # あらかじめO(k)の前計算をしておいてr<=kに対してnCrを高速に計算する
-    def __init__(self, n, k=10**6, p=10**9+7):
+    def __init__(self, n, k=10 ** 6, p=10 ** 9 + 7):
         # num[i]=nPi
         # den[i]=(i!)^(-1)
         num, den = [1], [1]
         a, b = 1, 1
-        for i in range(1, k+1):
-            a = (a*(n-i+1)) % p
-            b = (b*pow(i, p-2, p)) % p
+        for i in range(1, k + 1):
+            a = (a * (n - i + 1)) % p
+            b = (b * pow(i, p - 2, p)) % p
             num.append(a)
             den.append(b)
         self.num = num
@@ -23,6 +23,6 @@ class Comb0():
 
 
 n, a, b = map(int, input().split())
-p = 10**9+7
+p = 10 ** 9 + 7
 cmb = Comb0(n, k=max(a, b))
-print((pow(2, n, p)-1-cmb.calc(a)-cmb.calc(b)) % p)
+print((pow(2, n, p) - 1 - cmb.calc(a) - cmb.calc(b)) % p)

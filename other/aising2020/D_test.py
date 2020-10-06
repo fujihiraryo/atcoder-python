@@ -17,7 +17,7 @@ def f(n):
 # print([f(i) for i in range(100)])
 n = int(input())
 xx = input()
-x = sum([2**(n - i - 1) for i in range(n) if xx[i] == "1"])
+x = sum([2 ** (n - i - 1) for i in range(n) if xx[i] == "1"])
 for i in range(n):
     print(f(x ^ (1 << (n - i - 1))))
     # print(f(x ^ (1 << (n - i))))

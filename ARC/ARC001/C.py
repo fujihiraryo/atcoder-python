@@ -14,7 +14,7 @@ def encode(lst):
     y = [-1] * 8
     for i, s in enumerate(lst):
         try:
-            y[i] = s.index('Q')
+            y[i] = s.index("Q")
         except:
             continue
     return y
@@ -23,17 +23,17 @@ def encode(lst):
 def decode(x):
     lst = []
     for i in x:
-        s = ['.'] * 8
-        s[i] = 'Q'
-        lst.append(''.join(s))
+        s = ["."] * 8
+        s[i] = "Q"
+        lst.append("".join(s))
     return lst
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     lst = [input() for _ in range(8)]
     y = encode(lst)
     if y.count(-1) != 5:
-        print('No Answer')
+        print("No Answer")
         exit()
     for x in itertools.permutations(range(8)):
         if all([y[i] == -1 or y[i] == x[i] for i in range(8)]) and ok(x):
@@ -41,4 +41,4 @@ if __name__ == '__main__':
             for row in lst:
                 print(row)
             exit()
-    print('No Answer')
+    print("No Answer")

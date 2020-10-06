@@ -1,5 +1,5 @@
 n = int(input())
-*A, = map(int, input().split())
+(*A,) = map(int, input().split())
 S = [0]
 for i in range(n):
     S.append(S[-1] + A[i])

@@ -1,2 +1,2 @@
 S, T = input().split()
-print(T+S)
+print(T + S)

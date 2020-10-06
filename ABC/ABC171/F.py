@@ -1,7 +1,7 @@
 k = int(input())
 n = len(input())
-k, n = 10**6, 10**6
-p = 10**9 + 7
+k, n = 10 ** 6, 10 ** 6
+p = 10 ** 9 + 7
 a = 1
 fct = [a]
 for i in range(1, n + k + 1):

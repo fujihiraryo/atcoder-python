@@ -1,7 +1,8 @@
 import bisect
+
 n, m, k = map(int, input().split())
-*A, = map(int, input().split())
-*B, = map(int, input().split())
+(*A,) = map(int, input().split())
+(*B,) = map(int, input().split())
 SA, SB = [0], [0]
 for i in range(n):
     SA.append(SA[i] + A[i])

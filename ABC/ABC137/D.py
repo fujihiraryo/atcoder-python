@@ -9,7 +9,7 @@ for n in range(N):
 
 Q = [0 for m in range(M)]
 ans = 0
-for m in range(1, M+1):
+for m in range(1, M + 1):
     for work in work_list[m]:
         heapq.heappush(Q, work)
     ans += heapq.heappop(Q)

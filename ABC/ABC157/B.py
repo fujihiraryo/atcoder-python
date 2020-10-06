@@ -11,6 +11,6 @@ tate = any([all([X[i][j] for j in range(3)]) for i in range(3)])
 yoko = any([all([X[i][j] for i in range(3)]) for j in range(3)])
 nana = all([X[i][i] for i in range(3)]) or all([X[i][2 - i] for i in range(3)])
 if tate or yoko or nana:
-    print('Yes')
+    print("Yes")
 else:
-    print('No')
+    print("No")

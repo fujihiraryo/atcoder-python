@@ -1,5 +1,5 @@
 n = int(input())
-*A, = map(int, input().split())
+(*A,) = map(int, input().split())
 m = max(2, max(A))
 P = {p: True for p in range(2, m + 1)}
 for i in range(2, m + 1):
@@ -14,8 +14,8 @@ for p in Pmap:
         Pmap[p] += Amap[a]
 s = max(Pmap.values())
 if s < 2:
-    print('pairwise coprime')
+    print("pairwise coprime")
 elif s < n:
-    print('setwise coprime')
+    print("setwise coprime")
 else:
-    print('not coprime')
+    print("not coprime")

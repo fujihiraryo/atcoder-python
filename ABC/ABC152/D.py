@@ -20,7 +20,7 @@ for A in range(1, N + 1):
         count0 += 1
     count0 += (10 ** (d - 2) - 1) // 9
     if b < x:
-        count0 += (10 ** (d - 2))
+        count0 += 10 ** (d - 2)
     if b == x:
         count0 += M
         if a <= y:

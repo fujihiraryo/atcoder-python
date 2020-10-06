@@ -2,9 +2,9 @@ n = int(input())
 c = 1
 tmp = 26
 while tmp < n:
-    tmp += 26**(c + 1)
+    tmp += 26 ** (c + 1)
     c += 1
-ans = ''
+ans = ""
 for i in range(c):
     a = n % 26
     if a == 0:

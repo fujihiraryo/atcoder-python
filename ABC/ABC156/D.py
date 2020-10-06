@@ -1,5 +1,5 @@
 n, a, b = map(int, input().split())
-p = 10**9+7
+p = 10 ** 9 + 7
 
 
 def comb(n, a):
@@ -9,5 +9,5 @@ def comb(n, a):
     return ans
 
 
-ans = (pow(2, n, p)-1-comb(n, a)-comb(n, b)) % p
+ans = (pow(2, n, p) - 1 - comb(n, a) - comb(n, b)) % p
 print(ans)

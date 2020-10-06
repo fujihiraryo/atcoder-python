@@ -1,5 +1,5 @@
-*X, = map(int, input().split())
+(*X,) = map(int, input().split())
 if len(set(X)) == 2:
-    print('Yes')
+    print("Yes")
 else:
-    print('No')
+    print("No")

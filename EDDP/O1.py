@@ -1,6 +1,6 @@
 n = int(input())
 A = [list(map(int, input().split())) for i in range(n)]
-p = 10**9 + 7
+p = 10 ** 9 + 7
 DP = [-1 for s in range(1 << n)]
 DP[0] = 1
 

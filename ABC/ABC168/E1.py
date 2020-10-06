@@ -1,4 +1,5 @@
 from math import gcd
+
 n = int(input())
 C = {}
 z = 0
@@ -16,7 +17,7 @@ for i in range(n):
     except KeyError:
         C[(x, y)] = 1
 ans = 1
-p = 10**9 + 7
+p = 10 ** 9 + 7
 for x, y in C:
     if C[(x, y)] == 0:
         continue

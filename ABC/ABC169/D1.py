@@ -5,7 +5,7 @@ if n == 1:
 F = {}
 tmp = n
 i = 2
-while i**2 <= tmp:
+while i ** 2 <= tmp:
     cnt = 0
     while tmp % i == 0:
         cnt += 1

@@ -1,5 +1,5 @@
 n, s = map(int, input().split())
-*A, = map(int, input().split())
+(*A,) = map(int, input().split())
 p = 998244353
 DP = [[0 for j in range(s + 1)] for i in range(n + 1)]
 DP[0][0] = 1

@@ -15,4 +15,4 @@ for a in A[::-1]:
 R.reverse()
 
 for i in range(n):
-    print(max(L[i], R[i+1]))
+    print(max(L[i], R[i + 1]))

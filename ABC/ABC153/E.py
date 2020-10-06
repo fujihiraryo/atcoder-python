@@ -1,5 +1,5 @@
 def main():
-    inf = 10**9
+    inf = 10 ** 9
     H, N = map(int, input().split())
     AB = []
     for n in range(N):

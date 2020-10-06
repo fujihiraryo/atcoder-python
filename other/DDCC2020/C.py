@@ -4,12 +4,12 @@ A = []
 cnt = 1
 for i in range(h):
     Ai = []
-    if S[i].count('#') == 0:
+    if S[i].count("#") == 0:
         A.append(Ai)
         continue
     flag = False
     for j in range(w):
-        if S[i][j] == '#':
+        if S[i][j] == "#":
             if flag:
                 cnt += 1
             flag = True

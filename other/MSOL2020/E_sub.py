@@ -1,4 +1,5 @@
 from itertools import product
+
 n = int(input())
 XP = [tuple(map(int, input().split())) for i in range(n)]
 X = [x for x, p in XP]

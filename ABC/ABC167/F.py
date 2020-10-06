@@ -3,9 +3,9 @@ L, R = [], []
 for i in range(n):
     a, b = 0, 0
     for c in input():
-        if c == '(':
+        if c == "(":
             b += 1
-        if c == ')':
+        if c == ")":
             if b > 0:
                 b -= 1
             else:
@@ -20,10 +20,10 @@ x = 0
 for a, b in L + R:
     x -= a
     if x < 0:
-        print('No')
+        print("No")
         exit()
     x += b
 if x == 0:
-    print('Yes')
+    print("Yes")
 else:
-    print('No')
+    print("No")

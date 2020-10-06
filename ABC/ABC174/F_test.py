@@ -1,5 +1,6 @@
 import sys
 import random
+
 input = sys.stdin.readline
 
 
@@ -26,7 +27,7 @@ class BIT:
 
 
 def main():
-    n, q = 5 * 10**5, 5 * 10**5
+    n, q = 5 * 10 ** 5, 5 * 10 ** 5
     C = [random.choice(range(1, n + 1)) for i in range(n)]
     P = [0] * n
     N = [0] * n

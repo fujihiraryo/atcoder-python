@@ -1,5 +1,5 @@
 n = int(input())
-*P, = map(float, input().split())
+(*P,) = map(float, input().split())
 DP = [0 for j in range(n + 1)]
 DP[0] = 1
 for i in range(n):
@@ -8,4 +8,4 @@ for i in range(n):
     for j in range(1, n + 1):
         DP_.append(DP[j] * (1 - P[i]) + DP[j - 1] * P[i])
     DP = DP_
-print(sum(DP[(n + 1) // 2:]))
+print(sum(DP[(n + 1) // 2 :]))

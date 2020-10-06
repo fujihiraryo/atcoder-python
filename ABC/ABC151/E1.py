@@ -1,4 +1,4 @@
-class Comb():
+class Comb:
     def __init__(self, n, p):
         # O(n)
         fct, inv = [1, 1], [1, 1]
@@ -15,7 +15,7 @@ class Comb():
 
     def calc(self, n, r):
         fct, inv = self.fct, self.inv
-        if (r < 0 or n < r):
+        if r < 0 or n < r:
             return 0
         else:
             return fct[n] * inv[r] * inv[n - r] % p
@@ -29,7 +29,7 @@ p = 10 ** 9 + 7
 cmb = Comb(N, p)
 ans = 0
 for n in range(N - K + 1):
-    c = cmb.calc(N - n - 1, K-1)
+    c = cmb.calc(N - n - 1, K - 1)
     ans -= A[n] * c % p
     ans += B[n] * c % p
 print(ans % p)

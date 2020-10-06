@@ -1,4 +1,4 @@
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         # 親の名(いない場合は自分)
@@ -40,6 +40,6 @@ for q in range(Q):
         forest.union(A, B)
     if P == 1:
         if forest.same(A, B):
-            print('Yes')
+            print("Yes")
         else:
-            print('No')
+            print("No")

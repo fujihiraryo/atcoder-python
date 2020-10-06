@@ -2,7 +2,7 @@ n = int(input())
 X = []
 for i in range(n):
     x, c = input().split()
-    if c == 'R':
+    if c == "R":
         c = 0
     else:
         c = 1

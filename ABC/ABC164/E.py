@@ -1,5 +1,6 @@
 import heapq
-inf = 10**20
+
+inf = 10 ** 20
 h = 2500
 n, m, s = map(int, input().split())
 s = min(h - 1, s)

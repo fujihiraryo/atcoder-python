@@ -1,4 +1,4 @@
-mod = 10**9 + 7
+mod = 10 ** 9 + 7
 k = 5
 
 
@@ -10,7 +10,7 @@ class Lagrange:
         tmp = 1
         for i, (xi, yi) in enumerate(self.lst):
             if j != i:
-                tmp *= (x - xi)
+                tmp *= x - xi
                 tmp %= mod
         return tmp
 

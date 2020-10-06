@@ -1,5 +1,5 @@
 n = int(input())
-*D, = map(int, input().split())
+(*D,) = map(int, input().split())
 mod = 998244353
 if D[0] != 0:
     print(0)

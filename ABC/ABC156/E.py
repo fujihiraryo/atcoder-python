@@ -7,7 +7,7 @@ g2 = [1, 1]
 # 先にn!と(n!)^(-1)のリストを作っておく
 for i in range(2, 2 * 10 ** 5 + 1):
     g1.append((g1[-1] * i) % p)
-    g2.append((g2[-1] * pow(i, p-2, p)) % p)
+    g2.append((g2[-1] * pow(i, p - 2, p)) % p)
 
 
 def cmb(n, r):

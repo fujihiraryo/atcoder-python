@@ -11,7 +11,7 @@ def f(S):
             if cnt == c:
                 on = True
             cnt += 1
-        if on and S[i] == 'o':
+        if on and S[i] == "o":
             on = False
             cnt = 0
             L.append(i)
@@ -21,7 +21,7 @@ def f(S):
 
 
 L = f(S)
-R = [n-1-i for i in f(S[::-1])][::-1]
+R = [n - 1 - i for i in f(S[::-1])][::-1]
 for i in range(k):
     if L[i] == R[i]:
-        print(L[i]+1)
+        print(L[i] + 1)

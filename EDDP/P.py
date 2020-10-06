@@ -1,4 +1,5 @@
 import sys
+
 sys.setrecursionlimit(100000)
 n = int(input())
 G = [[] for i in range(n)]
@@ -6,7 +7,7 @@ for i in range(n - 1):
     x, y = map(int, input().split())
     G[x - 1].append(y - 1)
     G[y - 1].append(x - 1)
-p = 10**9 + 7
+p = 10 ** 9 + 7
 Q = [0]
 V = [False for i in range(n)]
 C = [[] for i in range(n)]

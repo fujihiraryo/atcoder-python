@@ -18,7 +18,7 @@ for s in range(1 << n):
                 DY[s][i] = min(DY[s][i], abs(Y[i] - Y[j]) * P[i])
 
 BC = [bin(s).count("1") for s in range(1 << n)]
-A = [10**20] * (n + 1)
+A = [10 ** 20] * (n + 1)
 for sx in range(1 << n):
     rx = ((1 << n) - 1) ^ sx
     sy = rx

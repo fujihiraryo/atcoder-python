@@ -1,6 +1,7 @@
 import bisect
+
 n = int(input())
-*A, = map(int, input().split())
+(*A,) = map(int, input().split())
 B = [A[i] + i for i in range(n)]
 C = [i - A[i] for i in range(n)]
 B.sort()

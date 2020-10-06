@@ -1,12 +1,13 @@
 import bisect
+
 n = int(input())
-*A, = map(int, input().split())
+(*A,) = map(int, input().split())
 G = [[] for i in range(n)]
 for i in range(n - 1):
     x, y = map(int, input().split())
     G[x - 1].append(y - 1)
     G[y - 1].append(x - 1)
-inf = 10**10
+inf = 10 ** 10
 DP = [inf for i in range(n)]
 L = [0 for i in range(n)]
 V = [False for i in range(n)]
@@ -24,4 +25,4 @@ while Q:
                 Q.append((y, -1))
     else:
         DP[x] = a
-print(*L, sep='\n')
+print(*L, sep="\n")

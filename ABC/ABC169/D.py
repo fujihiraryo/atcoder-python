@@ -3,7 +3,7 @@ def factrize(x):
     f = {}
     tmp = x
     i = 2
-    while i**2 <= tmp:
+    while i ** 2 <= tmp:
         cnt = 0
         while tmp % i == 0:
             cnt += 1

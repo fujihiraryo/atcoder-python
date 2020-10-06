@@ -1,5 +1,5 @@
 n, k = map(int, input().split())
-*A, = map(int, input().split())
+(*A,) = map(int, input().split())
 # n, k = 6, 727202214173249351
 # A = [6, 5, 2, 5, 3, 2]
 # n, k = 2, 1

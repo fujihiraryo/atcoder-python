@@ -1,15 +1,15 @@
 def div(x):
     D = set()
-    for i in range(1, int(x**0.5)+2):
+    for i in range(1, int(x ** 0.5) + 2):
         if x % i == 0:
             D.add(i)
-            D.add(x//i)
+            D.add(x // i)
     return D
 
 
 n = int(input())
 D0 = div(n)
-D1 = div(n-1)
+D1 = div(n - 1)
 D0.remove(1)
 D1.remove(1)
 cnt = 0

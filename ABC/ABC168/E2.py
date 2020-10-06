@@ -1,5 +1,6 @@
 from collections import defaultdict
 from math import gcd
+
 C = defaultdict(lambda: 0)
 for i in range(int(input())):
     x, y = map(int, input().split())
@@ -15,7 +16,7 @@ for x, y in C:
     if x <= 0 and y > 0:
         S.add((y, -x))
 ans = 1
-p = 10**9 + 7
+p = 10 ** 9 + 7
 for x, y in S:
     ans *= pow(2, C[(x, y)], p) + pow(2, C[(-y, x)], p) - 1
     ans %= p

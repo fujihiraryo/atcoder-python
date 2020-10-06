@@ -1,10 +1,10 @@
 # 貪欲の改良版
 d = int(input())
 dd = d * (d + 1) // 2
-*C, = map(int, input().split())
+(*C,) = map(int, input().split())
 S = [list(map(int, input().split())) for i in range(d)]
 
-max_score = -10**10
+max_score = -(10 ** 10)
 best_T = None
 for next_day in range(26):
     # Tの構築
@@ -12,7 +12,7 @@ for next_day in range(26):
     L = [-1 for j in range(26)]
     for i in range(d):
         # 各日のスコア増加を最大にするjを選ぶ
-        max_daily_score = -10**10
+        max_daily_score = -(10 ** 10)
         best_j = None
         for j in range(26):
             memo = L[j]

@@ -16,7 +16,7 @@ def matpow(A, k):
 
 
 n, k = map(int, input().split())
-p = 10**9 + 7
+p = 10 ** 9 + 7
 A = [list(map(int, input().split())) for i in range(n)]
 B = matpow(A, k)
 print(sum([sum(B[i]) for i in range(n)]) % p)

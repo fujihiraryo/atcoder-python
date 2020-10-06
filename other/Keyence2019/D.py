@@ -1,7 +1,8 @@
 import bisect
+
 n, m = map(int, input().split())
-*A, = map(int, input().split())
-*B, = map(int, input().split())
+(*A,) = map(int, input().split())
+(*B,) = map(int, input().split())
 setA = set(A)
 setB = set(B)
 A.sort()

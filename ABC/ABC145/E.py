@@ -1,4 +1,5 @@
 import numpy as np
+
 N, T = map(int, input().split())
 AB = [tuple(map(int, input().split())) for n in range(N)]
 AB.sort()

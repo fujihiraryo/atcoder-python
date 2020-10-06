@@ -2,7 +2,7 @@ n, q = map(int, input().split())
 n -= 2
 R, C = [None] * n, [None] * n
 h, w = n, n
-a = n**2
+a = n ** 2
 for _ in range(q):
     t, x = map(int, input().split())
     x -= 2

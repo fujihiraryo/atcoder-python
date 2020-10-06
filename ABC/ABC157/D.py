@@ -1,4 +1,4 @@
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         # 親の名(いない場合は自分)

@@ -1,4 +1,4 @@
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         self.parents = [-1] * n
@@ -43,8 +43,7 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r))
-                         for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
 
 
 n, m = map(int, input().split())

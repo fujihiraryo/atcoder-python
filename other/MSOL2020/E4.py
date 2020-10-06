@@ -1,13 +1,14 @@
 from itertools import product
+
 n = int(input())
 XYP = [tuple(map(int, input().split())) for i in range(n)]
 X = [x for x, y, p in XYP]
 Y = [y for x, y, p in XYP]
 P = [p for x, y, p in XYP]
 
-DX = [[0] * n for s in range(2**n)]
-DY = [[0] * n for s in range(2**n)]
-for s in range(2**n):
+DX = [[0] * n for s in range(2 ** n)]
+DY = [[0] * n for s in range(2 ** n)]
+for s in range(2 ** n):
     for i in range(n):
         DX[s][i] = abs(X[i]) * P[i]
         DY[s][i] = abs(Y[i]) * P[i]
@@ -16,8 +17,8 @@ for s in range(2**n):
                 DX[s][i] = min(DX[s][i], abs(X[i] - X[j]) * P[i])
                 DY[s][i] = min(DY[s][i], abs(Y[i] - Y[j]) * P[i])
 
-pow2 = [2**i for i in range(n)]
-A = [10**20] * (n + 1)
+pow2 = [2 ** i for i in range(n)]
+A = [10 ** 20] * (n + 1)
 for s in product(range(3), repeat=n):
     tmp = s
     # c, sx, sy = 0, 0, 0

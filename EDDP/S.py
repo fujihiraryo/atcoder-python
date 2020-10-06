@@ -1,6 +1,6 @@
 N = [int(n) for n in list(input())]
 d = int(input())
-p = 10**9 + 7
+p = 10 ** 9 + 7
 DP = [[0] * d, [0] * d]
 DP[1][0] = 1
 for n in N:

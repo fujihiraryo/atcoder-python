@@ -1,4 +1,5 @@
 import sys
+
 sys.setrecursionlimit(10000)
 n, m = map(int, input().split())
 G = [[] for i in range(n)]

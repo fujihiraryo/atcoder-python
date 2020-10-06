@@ -7,7 +7,7 @@ def f(N, K):
     elif M == 0 and K != 1:
         return 0
     else:
-        return R * f(M, K-1) + (9-R) * f(M-1, K-1) + f(M, K)
+        return R * f(M, K - 1) + (9 - R) * f(M - 1, K - 1) + f(M, K)
 
 
 N = int(input())

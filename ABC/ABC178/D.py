@@ -1,5 +1,5 @@
 n = int(input())
-mod = 10**9 + 7
+mod = 10 ** 9 + 7
 C = [[0 for j in range(n + 1)] for i in range(n + 1)]
 for i in range(n + 1):
     C[i][0] = 1

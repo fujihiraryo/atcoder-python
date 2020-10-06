@@ -1,5 +1,5 @@
 n, m = map(int, input().split())
-inf = 10**10
+inf = 10 ** 10
 # G[i][j] = iからjへの距離
 G = [{} for i in range(n)]
 for i in range(m):
@@ -22,6 +22,6 @@ for i in range(n):
             if D[k] == inf:
                 D[k] = D[j] + G[j][k]
             elif D[k] != D[j] + G[j][k]:
-                print('No')
+                print("No")
                 exit()
-print('Yes')
+print("Yes")

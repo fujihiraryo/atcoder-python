@@ -10,16 +10,16 @@ for n in range(N - 1):
         T.append(count)
         count = 1
 T.append(count)
-if S[0] == '0':
+if S[0] == "0":
     T = [0] + T
-if S[-1] == '0':
+if S[-1] == "0":
     T = T + [0]
 L = len(T)
 if 2 * K + 1 >= L:
     print(N)
     exit()
 # 偶数番目から始まる連続する2K+1個の和の最大値
-now = sum(T[0: 2 * K + 1])
+now = sum(T[0 : 2 * K + 1])
 ans = now
 for l in range(2, L - (2 * K + 1) + 1, 2):
     now -= T[l - 2]

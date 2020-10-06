@@ -15,6 +15,6 @@ def f(A):
 S = f(list(input()))
 T = f(list(input()))
 if S == T:
-    print('Yes')
+    print("Yes")
 else:
-    print('No')
+    print("No")

@@ -1,4 +1,5 @@
 import numpy as np
+
 N = int(input())
 P = []
 for n in range(N):
@@ -20,7 +21,7 @@ def minfx(y):
     right = 1000
     for _ in range(80):
         left_ = left * (2 / 3) + right * (1 / 3)
-        right_ = left*(1/3)+right*(2/3)
+        right_ = left * (1 / 3) + right * (2 / 3)
         if f(left_, y) <= f(right_, y):
             right = right_
         else:
@@ -33,7 +34,7 @@ left = 0
 right = 1000
 for _ in range(80):
     left_ = left * (2 / 3) + right * (1 / 3)
-    right_ = left*(1/3)+right*(2/3)
+    right_ = left * (1 / 3) + right * (2 / 3)
     if minfx(left_) <= minfx(right_):
         right = right_
     else:

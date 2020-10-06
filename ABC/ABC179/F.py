@@ -2,7 +2,7 @@ n, q = map(int, input().split())
 n -= 2
 X = [[n] * n, [n] * n]
 H = [n, n]
-ans = n**2
+ans = n ** 2
 for _ in range(q):
     a, b = map(int, input().split())
     a -= 1

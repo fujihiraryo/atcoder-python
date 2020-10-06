@@ -1,4 +1,5 @@
 import itertools
+
 n, m, q = map(int, input().split())
 X = [tuple(map(int, input().split())) for i in range(q)]
 ans = 0

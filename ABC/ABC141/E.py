@@ -4,11 +4,11 @@ def zalgo(S):
     A = [0] * n
     j = 0
     for i in range(1, n):
-        if i+A[i-j] < j+A[j]:
-            A[i] = A[i-j]
+        if i + A[i - j] < j + A[j]:
+            A[i] = A[i - j]
         else:
-            k = max(0, A[j]-i+j)
-            while i+k < n and S[k] == S[i+k]:
+            k = max(0, A[j] - i + j)
+            while i + k < n and S[k] == S[i + k]:
                 k += 1
             A[i] = k
             j = i

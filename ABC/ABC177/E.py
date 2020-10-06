@@ -1,11 +1,11 @@
-class Sieve():
+class Sieve:
     # エラトステネスの篩
     def __init__(self, n):
         # f[x]=0ならxは素数
         # f[x]はxの最小の素因数
         X = list(range(2, n + 1))
         f = {}
-        while X[0]**2 <= n:
+        while X[0] ** 2 <= n:
             tmp = X[0]
             f[tmp] = 0
             X_new = []
@@ -38,16 +38,16 @@ class Sieve():
 
 
 n = int(input())
-*A, = map(int, input().split())
-sieve = Sieve(10**6)
+(*A,) = map(int, input().split())
+sieve = Sieve(10 ** 6)
 P = {p: 0 for p in sieve.primes.keys() if sieve.primes[p] == 0}
 for a in A:
     for p in sieve.factrize(a).keys():
         P[p] += 1
 score = max(P.values())
 if score == 1:
-    print('pairwise coprime')
+    print("pairwise coprime")
 elif score != n:
-    print('setwise coprime')
+    print("setwise coprime")
 else:
-    print('not coprime')
+    print("not coprime")

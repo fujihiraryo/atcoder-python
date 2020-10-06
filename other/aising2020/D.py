@@ -23,7 +23,7 @@ if pcx == 1:
     for i in range(n):
         if x[i] == "1":
             b += pow(2, n - i - 1, pcx + 1)
-            b %= (pcx + 1)
+            b %= pcx + 1
     for i in range(n):
         if x[i] == "1":
             print(0)
@@ -35,9 +35,9 @@ if pcx > 1:
     for i in range(n):
         if x[i] == "1":
             a += pow(2, n - i - 1, pcx - 1)
-            a %= (pcx - 1)
+            a %= pcx - 1
             b += pow(2, n - i - 1, pcx + 1)
-            b %= (pcx + 1)
+            b %= pcx + 1
 else:
     for i in range(n):
         print(1)

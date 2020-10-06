@@ -1,7 +1,7 @@
 h, w, d = map(int, input().split())
 X = [None for k in range(h * w)]
 for i in range(h):
-    *A, = map(int, input().split())
+    (*A,) = map(int, input().split())
     for j in range(w):
         X[A[j] - 1] = (i, j)
 D = []

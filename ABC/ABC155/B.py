@@ -1,5 +1,5 @@
 N = int(input())
-* A, = map(int, input().split())
+(*A,) = map(int, input().split())
 
 
 def judge(A):
@@ -11,6 +11,6 @@ def judge(A):
 
 R = judge(A)
 if R:
-    print('APPROVED')
+    print("APPROVED")
 else:
-    print('DENIED')
+    print("DENIED")

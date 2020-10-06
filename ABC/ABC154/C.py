@@ -1,6 +1,6 @@
 N = int(input())
-* A, = map(int, input().split())
+(*A,) = map(int, input().split())
 if len(set(A)) == N:
-    print('YES')
+    print("YES")
 else:
-    print('NO')
+    print("NO")

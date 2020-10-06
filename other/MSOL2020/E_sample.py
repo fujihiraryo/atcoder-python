@@ -1,4 +1,5 @@
 import random
+
 n = 15
 print(n)
 for i in range(n):

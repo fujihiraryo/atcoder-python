@@ -1,14 +1,15 @@
 import sys
+
 input = sys.stdin.readline
 
 
-class SegmentTree():
+class SegmentTree:
     def __init__(self, S):
         self.size = 19
-        self.array = [set()] * (2**(self.size + 1) - 1)
+        self.array = [set()] * (2 ** (self.size + 1) - 1)
         for i, c in enumerate(S):
-            self.array[i + 2**self.size - 1] = {c}
-        for i in range(2**self.size - 1)[::-1]:
+            self.array[i + 2 ** self.size - 1] = {c}
+        for i in range(2 ** self.size - 1)[::-1]:
             self.array[i] = self.array[2 * i + 1] | self.array[2 * i + 2]
 
     def subquery(self, l, r, k, i, j):
@@ -24,10 +25,10 @@ class SegmentTree():
 
     def query(self, l, r):
         # [l,r)に含まれる文字の種類数
-        return len(self.subquery(l, r, 0, 0, 2**self.size))
+        return len(self.subquery(l, r, 0, 0, 2 ** self.size))
 
     def update(self, i, c):
-        tmp = i + 2**self.size - 1
+        tmp = i + 2 ** self.size - 1
         self.array[tmp] = {c}
         while tmp > 0:
             tmp = (tmp - 1) // 2
@@ -41,7 +42,7 @@ def main():
     tree = SegmentTree(S)
     for q in range(Q):
         t, i, c = input().split()
-        if t == '1':
+        if t == "1":
             i = int(i) - 1
             tree.update(i, ord(c) - 97)
         else:
@@ -49,5 +50,5 @@ def main():
             print(tree.query(l, r))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

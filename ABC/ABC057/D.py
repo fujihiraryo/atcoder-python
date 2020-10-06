@@ -5,7 +5,7 @@ for i in range(1, 51):
     for j in range(1, 51):
         C[i][j] = C[i - 1][j - 1] + C[i - 1][j]
 n, a, b = map(int, input().split())
-*V, = map(int, input().split())
+(*V,) = map(int, input().split())
 V.sort(reverse=True)
 print(sum(V[:a]) / a)
 if V[0] == V[a - 1]:

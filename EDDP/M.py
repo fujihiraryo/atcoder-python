@@ -1,6 +1,6 @@
 n, k = map(int, input().split())
-*A, = map(int, input().split())
-p = 10**9 + 7
+(*A,) = map(int, input().split())
+p = 10 ** 9 + 7
 DP = [[0 for j in range(k + 1)] for i in range(n + 1)]
 for i in range(n + 1):
     DP[i][0] = 1

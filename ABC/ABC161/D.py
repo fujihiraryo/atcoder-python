@@ -5,12 +5,12 @@ for i in range(9):
     for a in A:
         r = a % 10
         if r > 0:
-            B.append(10*a+r-1)
+            B.append(10 * a + r - 1)
         if r < 9:
-            B.append(10*a+r+1)
-        B.append(10*a+r)
-    X = X+B
+            B.append(10 * a + r + 1)
+        B.append(10 * a + r)
+    X = X + B
     A = B
 X.sort()
 k = int(input())
-print(X[k-1])
+print(X[k - 1])

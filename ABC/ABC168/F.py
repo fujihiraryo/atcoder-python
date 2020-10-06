@@ -1,5 +1,6 @@
 import bisect
-INF = 10**9 + 1
+
+INF = 10 ** 9 + 1
 n, m = map(int, input().split())
 X, Y = [-INF, 0, INF], [-INF, 0, INF]
 ABC, DEF = [], []
@@ -46,6 +47,6 @@ while Q:
                 V[i + di][j + dj] = 1
                 Q.append((i + di, j + dj))
         else:
-            print('INF')
+            print("INF")
             exit()
 print(ans)

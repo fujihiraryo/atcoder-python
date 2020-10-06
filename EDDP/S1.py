@@ -1,10 +1,11 @@
 import sys
+
 sys.setrecursionlimit(100000)
 # n = int(input())
 # d = int(input())
-n = 10**10000
+n = 10 ** 10000
 d = 100
-p = 10**9 + 7
+p = 10 ** 9 + 7
 DP = {}
 DP[-1] = [0] * d
 DP[0] = [0] * d

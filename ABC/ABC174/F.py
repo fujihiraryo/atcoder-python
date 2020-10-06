@@ -1,4 +1,5 @@
 import sys
+
 input = sys.stdin.readline
 
 
@@ -23,7 +24,7 @@ class BIT:
 
 
 n, q = map(int, input().split())
-*C, = map(lambda x: int(x) - 1, input().split())
+(*C,) = map(lambda x: int(x) - 1, input().split())
 P = [0] * n
 N = [None] * n
 for i in range(n)[::-1]:

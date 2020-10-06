@@ -1,5 +1,6 @@
 from collections import deque
-inf = 10**18
+
+inf = 10 ** 18
 R, C = map(int, input().split())
 sy, sx = map(int, input().split())
 gy, gx = map(int, input().split())
@@ -15,6 +16,6 @@ while len(Q) != 0:
         exit()
     N = [(y, x - 1), (y, x + 1), (y - 1, x), (y + 1, x)]
     for (y1, x1) in N:
-        if A[y1][x1] != '#' and V[y1][x1] == inf:
+        if A[y1][x1] != "#" and V[y1][x1] == inf:
             Q.append((y1, x1))
             V[y1][x1] = V[y][x] + 1

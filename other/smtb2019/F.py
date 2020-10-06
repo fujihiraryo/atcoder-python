@@ -6,7 +6,7 @@ d1 = (a1 - b1) * t1
 if d0 < 0:
     d0, d1 = -d0, -d1
 if d0 + d1 == 0:
-    print('infinity')
+    print("infinity")
     exit()
 if d0 + d1 > 0:
     print(0)

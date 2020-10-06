@@ -13,7 +13,7 @@ def can_buy(N):
 
 
 left = 0
-right = 10 ** 9+1
+right = 10 ** 9 + 1
 while left < right - 1:
     mid = (left + right) // 2
     if can_buy(mid):

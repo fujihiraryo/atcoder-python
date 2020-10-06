@@ -1,7 +1,7 @@
 # 部分リストのリスト
 def all_sublist(lst):
     lstlst = []
-    for i in range(2**len(lst)):
+    for i in range(2 ** len(lst)):
         sublst = []
         for j in range(len(lst)):
             if (i >> j) & 1 == 1:
@@ -18,7 +18,7 @@ S = [[int(x) for x in list(input())] for h in range(H)]
 cutlst = all_sublist(list(range(1, H)))
 
 # 横方向の切り方を動かして切る数の合計の最小値を求める
-cnt_min = 10**9 + 7
+cnt_min = 10 ** 9 + 7
 for cut in cutlst:
     # 横方向に切って圧縮したものをSSとする
     SS = []

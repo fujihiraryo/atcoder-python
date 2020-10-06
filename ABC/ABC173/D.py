@@ -1,5 +1,5 @@
 n = int(input())
-*A, = map(int, input().split())
+(*A,) = map(int, input().split())
 A.sort(reverse=True)
 comfort = A[0]
 j = 1

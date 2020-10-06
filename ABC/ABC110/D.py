@@ -4,7 +4,7 @@ def factrize(x):
         return f
     tmp = x
     i = 2
-    while i**2 <= tmp:
+    while i ** 2 <= tmp:
         cnt = 0
         while tmp % i == 0:
             cnt += 1
@@ -24,7 +24,7 @@ def comb(n, r, p):
     return x % p
 
 
-p = 10**9 + 7
+p = 10 ** 9 + 7
 n, m = map(int, input().split())
 A = list(factrize(m).values())
 ans = 1

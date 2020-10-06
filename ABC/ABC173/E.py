@@ -1,6 +1,6 @@
 n, k = map(int, input().split())
-*A, = map(int, input().split())
-p = 10**9 + 7
+(*A,) = map(int, input().split())
+p = 10 ** 9 + 7
 A.sort()
 ans = 1
 if A[n - 1] <= 0 and k % 2 == 1:
@@ -19,7 +19,7 @@ if k % 2 == 1:
 for _ in range(k // 2):
     left = A[i] * A[i + 1]
     right = A[j] * A[j - 1]
-    if (left > right):
+    if left > right:
         ans *= left
         ans %= p
         i += 2

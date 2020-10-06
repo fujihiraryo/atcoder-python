@@ -1,6 +1,6 @@
 n, q = map(int, input().split())
-*C, = map(int, input().split())
-k = 2**19
+(*C,) = map(int, input().split())
+k = 2 ** 19
 S = [set()] * (2 * k - 1)
 for i in range(n):
     S[k - 1 + i] = {C[i]}

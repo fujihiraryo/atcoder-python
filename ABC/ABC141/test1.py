@@ -1,1 +1,1 @@
-print(hash('aaaa'))
+print(hash("aaaa"))

@@ -1,6 +1,7 @@
 from collections import Counter
+
 N = int(input())
-*A, = map(int, input().split())
+(*A,) = map(int, input().split())
 C = Counter(A)
 D = {}
 for key in C.keys():

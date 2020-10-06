@@ -3,12 +3,12 @@ import time
 
 d = int(input())
 dd = d * (d + 1) // 2
-*C, = map(int, input().split())
+(*C,) = map(int, input().split())
 S = [list(map(int, input().split())) for i in range(d)]
 T = []
 L = [-1 for j in range(26)]
 for i in range(d):
-    max_diff = -10**7
+    max_diff = -(10 ** 7)
     arg_max = 0
     for j in range(26):
         memo = L[j]

@@ -1,4 +1,5 @@
 from math import gcd
+
 n = int(input())
 P = [tuple(map(int, input().split())) for i in range(n)]
 C = {}
@@ -28,7 +29,7 @@ for x, y in C.keys():
 for x, y in D:
     C[(x, y)] = 0
 ans = 1
-p = 10**9 + 7
+p = 10 ** 9 + 7
 for x, y in C.keys():
     if x > 0:
         a = C[(x, y)]

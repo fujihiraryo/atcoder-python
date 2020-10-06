@@ -1,2 +1,2 @@
 L = int(input())
-print((L / 3)**3)
+print((L / 3) ** 3)

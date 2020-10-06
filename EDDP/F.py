@@ -9,7 +9,7 @@ for i in range(1, m + 1):
         else:
             DP[i][j] = max(DP[i][j - 1], DP[i - 1][j])
 i, j = m, n
-X = ''
+X = ""
 while len(X) < DP[m][n]:
     if S[i - 1] == T[j - 1]:
         X = S[i - 1] + X

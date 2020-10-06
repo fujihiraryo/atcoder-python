@@ -1,5 +1,5 @@
 d = int(input())
-*C, = map(int, input().split())
+(*C,) = map(int, input().split())
 S = [list(map(int, input().split())) for i in range(d)]
 
 

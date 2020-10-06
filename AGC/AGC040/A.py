@@ -2,15 +2,15 @@ S = input()
 L = []
 N = len(S)
 
-if S[-1] == '<':
-    S += '><'
+if S[-1] == "<":
+    S += "><"
 else:
-    S += '<>'
+    S += "<>"
 
 index = 0
 for n in range(N + 1):
-    if S[n: n + 2] == '><':
-        L.append(S[index: n + 1])
+    if S[n : n + 2] == "><":
+        L.append(S[index : n + 1])
         index = n + 1
 
 
@@ -18,7 +18,7 @@ def calc(string):
     K = len(string)
     c = K
     for k in range(K - 1):
-        if string[k: k + 2] == '<>':
+        if string[k : k + 2] == "<>":
             c = k + 1
             break
     a = min(c, K - c)

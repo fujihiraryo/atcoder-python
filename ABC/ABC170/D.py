@@ -1,5 +1,5 @@
 n = int(input())
-*A, = map(int, input().split())
+(*A,) = map(int, input().split())
 maxA = max(A)
 # C[a] = A内のaの個数
 C = {a: 0 for a in A}
