@@ -4,7 +4,7 @@ class UnionFind:
         self.parent = [None] * n
 
     def root(self, x):
-        if self.parent[x] == None:
+        if self.parent[x] is None:
             return x
         else:
             return self.root(self.parent[x])
@@ -34,7 +34,7 @@ for x, y in zip(X, Y):
     try:
         R[r][0].add(x)
         R[r][1].add(y)
-    except:
+    except KeyError:
         R[r] = ({x}, {y})
 ans = 0
 for r in R.keys():
