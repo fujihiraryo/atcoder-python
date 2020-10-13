@@ -19,6 +19,6 @@ for k in range(K):
             else:
                 score += point[L[i]] * ((count + 1) // 2)
                 count = 1
-        except:
+        except KeyError:
             score += point[L[i]] * ((count + 1) // 2)
 print(score)

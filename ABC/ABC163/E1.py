@@ -19,7 +19,7 @@ DP = [[None for r in range(n + 1)] for l in range(n + 1)]
 def dp(l, r):
     if l == r:
         DP[l][r] = 0
-    if DP[l][r] != None:
+    if DP[l][r] is not None:
         return DP[l][r]
     a, i = A[n - (r - l)]
     x = dp(l + 1, r) + a * abs(i - l)

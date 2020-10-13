@@ -5,7 +5,7 @@ for i in range(8):
     C = list(input())
     try:
         A.append(C.index("Q"))
-    except:
+    except ValueError:
         A.append(-1)
 if A.count(-1) != 5:
     print("No Answer")

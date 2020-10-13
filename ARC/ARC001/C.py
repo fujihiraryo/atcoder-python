@@ -15,7 +15,7 @@ def encode(lst):
     for i, s in enumerate(lst):
         try:
             y[i] = s.index("Q")
-        except:
+        except ValueError:
             continue
     return y
 

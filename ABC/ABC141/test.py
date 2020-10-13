@@ -1,6 +1,3 @@
-import random
-
-
 def ok(k):
     # 長さkの連続部分列で重ならずに2回以上現れるものがある
     D = {}
@@ -9,7 +6,7 @@ def ok(k):
         try:
             if D[s] + k <= i:
                 return True
-        except:
+        except KeyError:
             D[s] = i
     return False
 

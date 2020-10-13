@@ -18,13 +18,6 @@ def circum(a, b, c):
     return ox, oy
 
 
-def dist2(a, b):
-    # 2点a,bの距離の2乗
-    ax, ay = a
-    bx, by = b
-    return (ax - bx) ** 2 + (ay - by) ** 2
-
-
 n = int(input())
 P = [tuple(map(int, input().split())) for i in range(n)]
 eps = 10 ** (-7)

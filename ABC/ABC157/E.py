@@ -36,7 +36,6 @@ class SegmentTree:
 
 
 def main():
-    N = int(input())
     S = [ord(_) - 97 for _ in list(input())]
     Q = int(input())
     tree = SegmentTree(S)

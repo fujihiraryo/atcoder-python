@@ -8,6 +8,6 @@ for l in L:
         j = S.index(l[1], i + 1)
         k = S.index(l[2], j + 1)
         count += 1
-    except:
+    except ValueError:
         continue
 print(count)

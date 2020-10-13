@@ -26,7 +26,7 @@ for v in X:
     color = 0
     try:
         p_color = C[min(v, P[v]), max(v, P[v])]
-    except:
+    except KeyError:
         p_color = -1
     for u in G[v]:
         if u == P[v]:

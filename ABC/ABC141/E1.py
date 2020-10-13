@@ -6,7 +6,7 @@ def ok(k):
         try:
             if D[s] + k <= i:
                 return True
-        except:
+        except KeyError:
             D[s] = i
     return False
 
