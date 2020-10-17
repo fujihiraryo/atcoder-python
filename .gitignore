@@ -3,3 +3,4 @@ tempCodeRunnerFile.py
 *.txt
 .vscode/*
 .python-version
+!requirements.txt
