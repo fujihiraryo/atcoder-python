@@ -1,5 +1,4 @@
-from random import choice
-from random import random
+from random import choice, random
 from time import time
 
 start_time = time()

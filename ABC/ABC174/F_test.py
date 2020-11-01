@@ -1,5 +1,5 @@
-import sys
 import random
+import sys
 
 input = sys.stdin.readline
 

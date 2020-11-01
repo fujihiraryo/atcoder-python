@@ -1,6 +1,6 @@
 # 貪欲+山登り(日付だけランダム)
-import time
 import random
+import time
 
 d = int(input())
 dd = d * (d + 1) // 2

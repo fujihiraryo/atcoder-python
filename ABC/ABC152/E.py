@@ -1,5 +1,5 @@
-from functools import reduce
 import fractions
+from functools import reduce
 
 # input()
 # *A, = map(int, input().split())

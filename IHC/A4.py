@@ -1,6 +1,6 @@
 # 貪欲+焼き鈍し(日付とコンテストをランダムに2つ選ぶ)
-import time
 import random
+import time
 
 d = int(input())
 dd = d * (d + 1) // 2

@@ -1,6 +1,6 @@
+import numpy as np
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import floyd_warshall
-import numpy as np
 
 H, W = map(int, input().split())
 S = []

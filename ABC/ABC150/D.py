@@ -1,5 +1,5 @@
-import functools
 import fractions
+import functools
 
 
 def lcm(a, b):
