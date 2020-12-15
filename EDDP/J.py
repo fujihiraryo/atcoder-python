@@ -6,8 +6,8 @@ DP = [
     for i in range(a + 1)
 ]
 for i in range(a + 1):
-    for j in range(a + b + 1):
-        for k in range(a + b + c + 1):
+    for j in range(a - i + b + 1):
+        for k in range(a - i + b - j + c + 1):
             if i + j + k == 0:
                 continue
             DP[i][j][k] = n
