@@ -31,10 +31,10 @@ for _ in range(m):
     obs[i].append(j)
 ans = sum(row[: col[0]]) + sum(col[: row[0]])
 tree = FenwickTree(w)
-for j in range(w):
+for j in range(row[0]):
     tree.add(j, 1)
 for i in range(col[0]):
     for j in obs[i]:
         tree.add(j, -tree[j])
-    ans -= tree.sum(min(row[0], row[i]))
+    ans -= tree.sum(row[i])
 print(ans)
