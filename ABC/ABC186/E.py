@@ -16,6 +16,6 @@ for n, s, k in query:
     if s % r != 0:
         print(-1)
         continue
-    a, b, c = k // r, n // r, (n - s) // r
-    x, y, _ = ext_euclid(a, b)
-    print(c * x % b)
+    k, n, s = k // r, n // r, s // r
+    x, _, _ = ext_euclid(k, n)
+    print(-s * x % n)
