@@ -1,7 +1,7 @@
 import random
 
 MOD = 998244353
-n, q = 5 * 10 ** 5, 5 * 10 ** 5
+n, q = 5 * 10 ** 4, 5 * 10 ** 4
 print(n, q)
 a = [random.randint(0, MOD) for _ in range(n)]
 print(*a)
