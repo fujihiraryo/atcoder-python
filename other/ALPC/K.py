@@ -4,16 +4,19 @@ input = sys.stdin.readline
 
 
 class LazySegmentTree:
-    def __init__(self, n, ide, ope, init=None):
+    def __init__(self, n, ide, ope):
         self.size = n
         self.data = [ide] * (self.size << 1)
-        if init is not None:
-            self.data[self.size :] = init
         for k in range(1, self.size)[::-1]:
             self.data[k] = self.data[k << 1] + self.data[k << 1 | 1]
         self.memo = [ope] * (self.size << 1)
         self.ide = ide
         self.ope = ope
+
+    def initialize(self, a):
+        self.data[self.size :] = a
+        for k in range(1, self.size)[::-1]:
+            self.data[k] = self.data[k << 1] + self.data[k << 1 | 1]
 
     def __covering_index(self, i, j):
         i0 = i + self.size
@@ -73,35 +76,36 @@ class LazySegmentTree:
         return x
 
 
+MOD = 998244353
+
+
 class Monoid:
     # example(Range Sum)
-    def __init__(self, value=0, length=1, MOD=998244353):
+    def __init__(self, value=0, length=1):
         self.value = value
         self.length = length
-        self.MOD = MOD
 
     def __add__(self, other):
         value = self.value + other.value
         length = self.length + other.length
-        return Monoid(value % self.MOD, length)
+        return Monoid(value % MOD, length)
 
 
 class Operator:
     # example(Range Affine)
-    def __init__(self, param=(1, 0), MOD=998244353):
+    def __init__(self, param=(1, 0)):
         self.param = param
-        self.MOD = MOD
 
     def __call__(self, monoid):
         b, c = self.param
         value = b * monoid.value + monoid.length * c
-        return Monoid(value % self.MOD, monoid.length)
+        return Monoid(value % MOD, monoid.length)
 
     def __mul__(self, other):
         b0, c0 = self.param
         b1, c1 = other.param
         b, c = b0 * b1, b0 * c1 + c0
-        return Operator((b % self.MOD, c % self.MOD))
+        return Operator((b % MOD, c % MOD))
 
     def __eq__(self, other):
         return self.param == other.param
@@ -110,7 +114,8 @@ class Operator:
 n, q = map(int, input().split())
 (*a,) = map(int, input().split())
 a = [Monoid(a[i], 1) for i in range(n)]
-tree = LazySegmentTree(n, Monoid(), Operator(), init=a)
+tree = LazySegmentTree(n, Monoid(), Operator())
+tree.initialize(a)
 for _ in range(q):
     cmd, *query = map(int, input().split())
     if cmd == 0:
