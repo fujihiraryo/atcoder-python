@@ -43,6 +43,13 @@ class LazySegmentTree:
             if i0 & 1:
                 yield i0
                 i0 += 1
+            i0 >>= 1
+            j0 >>= 1
+        i0 = i + self.size
+        j0 = j + self.size
+        while i0 < j0:
+            if i0 & 1:
+                i0 += 1
             if j0 & 1:
                 yield j0 - 1
             i0 >>= 1
