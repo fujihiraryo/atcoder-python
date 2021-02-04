@@ -1,6 +1,3 @@
-import sys
-
-input = sys.stdin.readline
 MOD = 998244353
 BIT = 30
 MASK = (1 << BIT) - 1
