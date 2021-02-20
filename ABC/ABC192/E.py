@@ -27,6 +27,8 @@ heap = [(0, start)]
 heapq.heapify(heap)
 while heap:
     t, x = heapq.heappop(heap)
+    if dist[x] < t:
+        continue
     for s, y in graph(t, x):
         if dist[y] > s:
             dist[y] = s
