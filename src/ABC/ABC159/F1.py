@@ -12,4 +12,5 @@ for i in range(n):
 ans = 0
 for i in range(n):
     ans += dp[i + 1][s]
+    ans %= MOD
 print(ans)
