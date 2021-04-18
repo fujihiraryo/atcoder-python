@@ -1,38 +1,45 @@
-n = int(input())
+MOD = 3
 
 
-def div3(x):
-    # 3で割れるだけ割って、割れた回数と結果を返す
+pascal = [[0] * MOD for _ in range(MOD)]
+pascal[0][0] = 1
+for i in range(1, MOD):
+    pascal[i][0] = 1
+    for j in range(1, i + 1):
+        pascal[i][j] = (pascal[i - 1][j - 1] + pascal[i - 1][j]) % MOD
+
+
+def base(x):
+    res = []
     y = x
-    c = 0
-    while y % 3 == 0:
-        y //= 3
-        c += 1
-    return c, y
+    while y:
+        res.append(y % MOD)
+        y //= MOD
+    return res
 
 
-cnt = [0] * n
-fct = [1] * n
-for x in range(1, n):
-    c, y = div3(x)
-    cnt[x] = cnt[x - 1] + c
-    fct[x] = fct[x - 1] * y % 3
-
-
-def cmb(x, y):
-    # xCyを3で割ったあまり
-    if cnt[x] > cnt[x - y] + cnt[y]:
+def lucas(x, y):
+    if x < y or x < 0 or y < 0:
         return 0
-    return fct[x] * fct[x - y] * fct[y] % 3
+    x_lst = base(x)
+    y_lst = base(y)
+    for _ in range(len(x_lst) - len(y_lst)):
+        y_lst.append(0)
+    res = 1
+    for i, j in zip(x_lst, y_lst):
+        res *= pascal[i][j]
+        res %= MOD
+    return res
 
 
+n = int(input())
 dic = {"W": 0, "B": 1, "R": 2}
 rev = ["W", "B", "R"]
 a = [dic[x] for x in input()]
 ans = 0
 for i in range(n):
-    ans += cmb(n - 1, i) * a[i]
-    ans %= 3
-ans *= pow(2, n - 1, 3)
-ans %= 3
+    ans += lucas(n - 1, i) * a[i]
+    ans %= MOD
+ans *= pow(2, n - 1, MOD)
+ans %= MOD
 print(rev[ans])
