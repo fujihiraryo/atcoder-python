@@ -17,9 +17,6 @@ def encode(s):
 
 
 n = int(input())
-cnt = 0
-for s in range(1 << n)[::-1]:
-    if judge(s):
-        print(encode(s))
-        cnt += 1
-print(cnt)
+lst = [encode(s) for s in range(1 << n) if judge(s)]
+lst.sort()
+print(*lst, sep="\n")

@@ -1,6 +1,7 @@
 import math
 import bisect
 
+INF = 1000
 n = int(input())
 x, y = [], []
 for _ in range(n):
@@ -19,13 +20,13 @@ for i in range(n):
             deg += 360
         args.append(deg)
     args.sort()
-    args.append(360)
+    args.append(INF)
     for j in range(n - 1):
         if args[j] > 180:
             break
         k = bisect.bisect_left(args, args[j] + 180)
-        t0 = abs(args[j] - args[k])
-        t1 = abs(args[j] - args[k - 1])
-        t = min(t0, t1)
-        ans = max(ans, min(t, 360 - t))
+        if abs(args[k - 1] - (args[j] + 180)) < abs(args[k] - (args[j] + 180)):
+            k -= 1
+        tmp = abs(args[j] - args[k])
+        ans = max(ans, min(tmp, 360 - tmp))
 print(ans)

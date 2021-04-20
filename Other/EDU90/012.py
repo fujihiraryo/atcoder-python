@@ -1,45 +1,43 @@
 class UnionFind:
     def __init__(self, n):
-        self.parent = list(range(n))
-        self.group_size = [1] * n
+        self.parent = [-1] * n
 
-    def find(self, i):
-        j = i
-        while self.parent[j] != j:
-            j = self.parent[j]
-            self.parent[i] = j
-        return j
+    def root(self, i):
+        if self.parent[i] == -1:
+            return i
+        self.parent[i] = self.root(self.parent[i])
+        return self.parent[i]
 
-    def unite(self, i, j):
-        i0, j0 = self.find(i), self.find(j)
-        if i0 > j0:
-            i0, j0 = j0, i0
-        self.parent[j0] = i0
-        if i0 != j0:
-            self.group_size[i0] += self.group_size[j0]
+    def same(self, i, j):
+        return self.root(i) == self.root(j)
+
+    def merge(self, i, j):
+        i, j = self.root(i), self.root(j)
+        if i == j:
+            return
+        self.parent[j] = i
 
 
 h, w = map(int, input().split())
-num = lambda x, y: (x - 1) * h + y - 1
-n = h * w
 q = int(input())
-uf = UnionFind(n)
-red = [0] * n
+red = [[0] * w for _ in range(h)]
+uf = UnionFind(h * w)
 for _ in range(q):
-    t, *query = map(int, input().split())
-    if t == 1:
-        x, y = query
-        i = num(x, y)
-        red[i] = 1
-        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
-            if 0 <= x + dx < h and 0 <= y + dy < w:
-                j = num(x + dx, y + dy)
-                if red[j]:
-                    uf.unite(i, j)
+    t, *query = map(lambda x: int(x) - 1, input().split())
+    if t == 0:
+        r, c = query
+        red[r][c] = 1
+        if r - 1 >= 0 and red[r - 1][c]:
+            uf.merge((r - 1) * h + c, r * h + c)
+        if r + 1 < h and red[r + 1][c]:
+            uf.merge(r * h + c, (r + 1) * h + c)
+        if c - 1 >= 0 and red[r][c - 1]:
+            uf.merge(r * h + c - 1, r * h + c)
+        if c + 1 < w and red[r][c + 1]:
+            uf.merge(r * h + c, r * h + c + 1)
     else:
-        xa, ya, xb, yb = query
-        i, j = num(xa, ya), num(xb, yb)
-        if uf.find(i) == uf.find(j) and red[i] and red[j]:
+        ra, ca, rb, cb = query
+        if red[ra][ca] and red[rb][cb] and uf.same(ra * h + ca, rb * h + cb):
             print("Yes")
         else:
             print("No")

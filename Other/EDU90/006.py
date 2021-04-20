@@ -18,10 +18,9 @@ class SparseTable:
         return min(self.table[i][k], self.table[j - 2 ** k][k], key=lambda i: self.a[i])
 
 
+n, k = map(int, input().split())
 s = input()
-n = len(s)
 table = SparseTable(s)
-k = int(input())
 l, r = 0, n - k + 1
 ans = []
 for _ in range(k):
