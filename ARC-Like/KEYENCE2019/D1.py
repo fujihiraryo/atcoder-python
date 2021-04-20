@@ -1,7 +1,7 @@
 MOD = 10 ** 9 + 7
 n, m = map(int, input().split())
-*a, = map(int, input().split())
-*b, = map(int, input().split())
+(*a,) = map(int, input().split())
+(*b,) = map(int, input().split())
 a_cnt = [0] * (n * m + 1)
 for i in range(n):
     a_cnt[a[i]] += 1

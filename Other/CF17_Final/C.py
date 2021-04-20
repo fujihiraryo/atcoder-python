@@ -1,5 +1,5 @@
 n = int(input())
-*d, = map(int, input().split())
+(*d,) = map(int, input().split())
 cnt = [0] * 13
 for i in range(n):
     cnt[d[i]] += 1

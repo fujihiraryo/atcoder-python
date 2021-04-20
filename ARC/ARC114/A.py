@@ -17,7 +17,7 @@ def gcd(a, b):
 
 
 n = int(input())
-*x, = map(int, input().split())
+(*x,) = map(int, input().split())
 is_prime = prime_sieve(50)
 p = [i for i in range(50) if is_prime[i]]
 k = len(p)

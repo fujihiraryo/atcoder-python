@@ -1,7 +1,7 @@
 MOD = 998244353
 inv2 = pow(2, MOD - 2, MOD)
 n = int(input())
-*a, = map(int, input().split())
+(*a,) = map(int, input().split())
 a.sort()
 s = [0]
 for i in range(n):

@@ -20,7 +20,7 @@ class UnionFind:
 
 
 n, m = map(int, input().split())
-*p, = map(lambda x: int(x) - 1, input().split())
+(*p,) = map(lambda x: int(x) - 1, input().split())
 uf = UnionFind(n)
 for _ in range(m):
     x, y = map(int, input().split())

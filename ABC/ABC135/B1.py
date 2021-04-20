@@ -1,5 +1,5 @@
 n = int(input())
-*p, = map(int, input().split())
+(*p,) = map(int, input().split())
 if all(p[k] < p[k + 1] for k in range(n - 1)):
     print("YES")
     exit()

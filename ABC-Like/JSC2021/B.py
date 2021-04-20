@@ -1,6 +1,6 @@
 n, m = map(int, input().split())
-*a, = map(int, input().split())
-*b, = map(int, input().split())
+(*a,) = map(int, input().split())
+(*b,) = map(int, input().split())
 a = set(a)
 b = set(b)
 ans = []

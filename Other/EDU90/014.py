@@ -1,6 +1,6 @@
 n = int(input())
-*a, = map(int, input().split())
-*b, = map(int, input().split())
+(*a,) = map(int, input().split())
+(*b,) = map(int, input().split())
 a.sort()
 b.sort()
 print(sum(abs(a[i] - b[i]) for i in range(n)))

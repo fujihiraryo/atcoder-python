@@ -1,5 +1,5 @@
 n, x = map(int, input().split())
-*a, = map(int, input().split())
+(*a,) = map(int, input().split())
 INF = 10 ** 20
 
 

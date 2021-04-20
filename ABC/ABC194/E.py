@@ -1,5 +1,5 @@
 n, m = map(int, input().split())
-*a, = map(int, input().split())
+(*a,) = map(int, input().split())
 idx = [[-1] for x in range(max(a) + 1)]
 for i in range(n):
     idx[a[i]].append(i)

@@ -12,7 +12,7 @@ def calc(s):
 
 
 n = int(input())
-*a, = map(int, input().split())
+(*a,) = map(int, input().split())
 ans = 1 << 60
 for s in range(1 << (n - 1)):
     ans = min(ans, calc(s))

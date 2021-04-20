@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 n, m = map(int, input().split())
-*a, = map(int, input().split())
+(*a,) = map(int, input().split())
 a = [a[i] % m for i in range(n)]
 s = [0]
 for i in range(n):

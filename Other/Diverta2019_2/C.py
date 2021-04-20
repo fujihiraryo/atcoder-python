@@ -1,5 +1,5 @@
 n = int(input())
-*a, = map(int, input().split())
+(*a,) = map(int, input().split())
 a.sort()
 ans = []
 pos, neg = [], []

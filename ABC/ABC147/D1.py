@@ -1,6 +1,6 @@
 MOD = 10 ** 9 + 7
 n = int(input())
-*a, = map(int, input().split())
+(*a,) = map(int, input().split())
 cnt = [[0] * (n + 1) for _ in range(60)]
 bit = [[0] * n for _ in range(60)]
 for i in range(n):

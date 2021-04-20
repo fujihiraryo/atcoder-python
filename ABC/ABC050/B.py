@@ -1,5 +1,5 @@
 n = int(input())
-*t, = map(int, input().split())
+(*t,) = map(int, input().split())
 m = int(input())
 for _ in range(m):
     p, x = map(int, input().split())

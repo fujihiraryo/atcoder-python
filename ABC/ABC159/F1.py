@@ -1,6 +1,6 @@
 MOD = 998244353
 n, s = map(int, input().split())
-*a, = map(int, input().split())
+(*a,) = map(int, input().split())
 dp = [[0] * (s + 1) for _ in range(n + 1)]
 for i in range(n):
     for j in range(s + 1):

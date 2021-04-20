@@ -1,5 +1,5 @@
 n = int(input())
-*a, = map(int, input().split())
+(*a,) = map(int, input().split())
 x, y = 0, 0
 j = 0
 ans = 0

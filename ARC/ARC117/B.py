@@ -1,6 +1,6 @@
 MOD = 10 ** 9 + 7
 n = int(input())
-*a, = map(int, input().split())
+(*a,) = map(int, input().split())
 a = list(set(a))
 a.sort()
 n = len(a)

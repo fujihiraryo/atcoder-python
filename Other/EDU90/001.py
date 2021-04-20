@@ -1,21 +1,24 @@
-n, m = map(int, input().split())
+n, l = map(int, input().split())
 k = int(input())
 (*a,) = map(int, input().split())
+b = [a[0]]
+for i in range(1, n):
+    b.append(a[i] - a[i - 1])
+b.append(l - a[-1])
 
 
 def judge(x):
-    t = 0
-    i = 0
-    for _ in range(k):
-        for j in range(i, n):
-            if a[j] - t >= x:
-                break
-        i = j
-        t = a[j]
-    return m - t >= x
+    cnt = 0
+    tmp = 0
+    for i in range(n + 1):
+        tmp += b[i]
+        if tmp >= x:
+            cnt += 1
+            tmp = 0
+    return cnt >= k + 1
 
 
-x, y = 0, m
+x, y = 0, l
 while y - x > 1:
     z = (x + y) // 2
     if judge(z):

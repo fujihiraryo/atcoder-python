@@ -3,7 +3,7 @@ import sys
 sys.setrecursionlimit(10 ** 5)
 
 n = int(input())
-*c, = map(int, input().split())
+(*c,) = map(int, input().split())
 c = [c[i] - 1 for i in range(n)]
 tree = [[] for _ in range(n)]
 for _ in range(n - 1):
