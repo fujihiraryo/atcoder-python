@@ -1,5 +1,6 @@
 tempCodeRunnerFile.py
-**/test.py
+*test.py
+*sample.py
 *.txt
-.vscode/*
+.vscode
 .python-version
