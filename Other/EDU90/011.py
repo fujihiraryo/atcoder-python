@@ -5,22 +5,13 @@ for _ in range(n):
     d.append(di)
     c.append(ci)
     s.append(si)
-idx = list(range(n))
-idx.sort(key=lambda i: d[i])
-
-
-def check(bit):
-    day = 0
-    for i in idx:
-        if (1 << i) & bit:
-            day += c[i]
-            if day > d[i]:
-                return False
-    return True
-
-
-ans = 0
-for bit in range(1 << n):
-    if check(bit):
-        ans = max(ans, sum(s[i] for i in range(n) if (1 << i) & bit))
-print(ans)
+m = max(d)
+dp = [0] * (m + 1)
+for i in sorted(range(n), key=lambda i: d[i]):
+    new = dp[:]
+    for j in range(m + 1):
+        if j + c[i] > d[i]:
+            continue
+        new[j + c[i]] = max(new[j + c[i]], dp[j] + s[i])
+    dp = new
+print(max(dp))
