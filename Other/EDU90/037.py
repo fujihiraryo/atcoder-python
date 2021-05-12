@@ -17,7 +17,7 @@ for i in range(n):
         while dq and lst[dq[-1]] <= lst[j - l[i]]:
             dq.pop()
         dq.append(j - l[i])
-        if j > r[i] and dq[0] == j - r[i] - 1:
+        while dq and dq[0] < j - r[i]:
             dq.popleft()
         new[j] = max(new[j], lst[dq[0]] + v[i])
     lst = new
