@@ -18,25 +18,9 @@ for x in queue:
         parent[y] = x
         queue.append(y)
 # 木DP
-dp = [0] * n
 size = [1] * n
 for x in order[::-1]:
     for y in child[x]:
         size[x] += size[y]
-        dp[x] += dp[y] + size[y]
-# 各子を除く場合の計算
-dp_ex = [{} for _ in range(n)]
-size_ex = [{} for _ in range(n)]
-for x in range(n):
-    for y in child[x]:
-        dp_ex[x][y] = dp[x] - dp[y] - size[y]
-        size_ex[x][y] = size[x] - size[y]
-# 部分木の更新
-for x in order[1:]:
-    p = parent[x]
-    dp[x] += dp_ex[p][x] + size_ex[p][x]
-    size[x] += size_ex[p][x]
-    for y in child[x]:
-        dp_ex[x][y] += dp_ex[p][x] + size_ex[p][x]
-        size_ex[x][y] += size_ex[p][x]
-print(sum(dp) // 2)
+ans = sum(size[x] * (n - size[x]) for x in range(n))
+print(ans)
