@@ -1,35 +1,63 @@
+def generate(n):
+    # 1が連続しないn桁以内の2進数
+    if n == 1:
+        yield 0
+        yield 1
+    else:
+        for s in generate(n - 1):
+            if not s & 1:
+                yield (s << 1)
+                yield (s << 1) | 1
+            else:
+                yield s << 1
+
+
 MOD = 10 ** 9 + 7
 h, w = map(int, input().split())
-c = [[1 if x == "#" else 0 for x in input()] for _ in range(h)]
-dp = {}
+c = [input() for _ in range(h)]
+lst = list(generate(w + 1))
+dic = {s: i for i, s in enumerate(lst)}
+# dst[j][k][l] = j列にいるときのlst[k]の遷移先のl番目
+dst = [[[None] * 2 for _ in lst] for _ in range(w)]
+for j in range(w):
+    for k, s in enumerate(lst):
+        if j == 0:
+            msk = (1 << w) - 1
+            dst[j][k][0] = dic[(s & msk) << 1]
+            if not s & 1:
+                dst[j][k][1] = dic[(s & msk) << 1 | 1]
+        else:
+            msk = (1 << (w + 1)) - 1 - (1 << j)
+            dst[j][k][0] = dic[s & msk]
+            if not s & (1 << (j - 1)) and not s & (1 << (j + 1)):
+                dst[j][k][1] = dic[s & msk | (1 << j)]
+
+n = len(lst)
+dp = [0] * n
 dp[0] = 1
 for i in range(h):
     for j in range(w):
-        nx = {}
-        for s in dp:
-            if dp[s] == 0:
-                continue
-            t = s >> 1
-            if t in nx:
-                nx[t] += dp[s]
-                nx[t] %= MOD
+        nx = [0] * n
+        for k, s in enumerate(lst):
+            if j == 0:
+                nx[dst[j][k][0]] += dp[k]
+                nx[dst[j][k][0]] %= MOD
+                if s & 1 or (w > 1 and s & 2) or c[i][j] == "#":
+                    continue
+                nx[dst[j][k][1]] += dp[k]
+                nx[dst[j][k][1]] %= MOD
             else:
-                nx[t] = dp[s]
-            ok = 1
-            if i - 1 >= 0 and j - 1 >= 0 and s & (1 << 0):
-                ok = 0
-            if i - 1 >= 0 and s & (1 << 1):
-                ok = 0
-            if i - 1 >= 0 and j + 1 < w and s & (1 << 2):
-                ok = 0
-            if j - 1 >= 0 and s & (1 << w):
-                ok = 0
-            if ok and c[i][j] == 0:
-                t = (s >> 1) + (1 << w)
-                if t in nx:
-                    nx[t] += dp[s]
-                    nx[t] %= MOD
-                else:
-                    nx[t] = dp[s]
+                nx[dst[j][k][0]] += dp[k]
+                nx[dst[j][k][0]] %= MOD
+                if (
+                    s & (1 << (j - 1))
+                    or s & (1 << j)
+                    or s & (1 << (j + 1))
+                    or s & (1 << (j + 2))
+                    or c[i][j] == "#"
+                ):
+                    continue
+                nx[dst[j][k][1]] += dp[k]
+                nx[dst[j][k][1]] %= MOD
         dp = nx
-print(sum(dp[s] for s in dp) % MOD)
+print(sum(dp) % MOD)
