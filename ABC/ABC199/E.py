@@ -7,11 +7,16 @@ dp = [0] * (1 << n)
 dp[0] = 1
 for s in range(1, 1 << n):
     x = bin(s).count("1")
-    if any(bin(s)[-y:].count("1") > z for y, z in cond[x]):
-        continue
-    t = s
-    while t:
-        i = len(bin(t)) - 3
-        dp[s] += dp[s - (1 << i)]
-        t -= 1 << i
+    ok = 1
+    for y, z in cond[x]:
+        cnt = 0
+        for i in range(n):
+            if (1 << i) & s and i < y:
+                cnt += 1
+        if cnt > z:
+            ok = 0
+    if ok:
+        for i in range(n):
+            if (1 << i) & s:
+                dp[s] += dp[s - (1 << i)]
 print(dp[-1])
