@@ -1,39 +1,22 @@
-MAGIC = 0.6180339887498948
-
-
-def call(x):
-    global n, memo
-    if x == n + 1 or x == 0:
+def call(i):
+    global n, a
+    if i == 0 or i > n:
         return -1
-    if memo[x] == -1:
-        print(f"? {x}", flush=True)
-        y = int(input())
-        memo[x] = y
-    return memo[x]
+    if a[i] == -1:
+        print(f"? {i}", flush=True)
+        a[i] = int(input())
+    return a[i]
 
 
 for _ in range(int(input())):
     n = int(input())
-    memo = [-1] * (n + 2)
-    # full search
-    if n <= 15:
-        ans = 0
-        for x in range(1, n + 1):
-            ans = max(ans, call(x))
-        print(f"! {ans}", flush=True)
-        continue
-    # golden section search
-    i, j = 0, n + 1
-    x = j - round((j - i) * MAGIC)
-    y = i + round((j - i) * MAGIC)
-    while x < y:
-        if call(x) < call(y):
-            i = x
-            x = y
-            y = j - round((j - x) * MAGIC)
+    f = [0, 610, 987, 1597]
+    a = [-1] * (f[3] + 1)
+    while f[3] - f[0] > 2:
+        if call(f[1]) >= call(f[2]):
+            f[2], f[3] = f[1], f[2]
+            f[1] = f[0] + f[3] - f[2]
         else:
-            j = y
-            y = x
-            x = i + round((y - i) * MAGIC)
-    ans = call(x)
-    print(f"! {ans}", flush=True)
+            f[0], f[1] = f[1], f[2]
+            f[2] = f[0] + f[3] - f[1]
+    print(f"! {a[f[1]]}", flush=True)
