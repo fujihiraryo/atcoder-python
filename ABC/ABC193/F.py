@@ -1,49 +1,66 @@
-class Dinic:
-    def __init__(self, graph, start, goal, INF=1 << 30):
-        n = len(graph)
-        self.size = n
-        self.graph = graph
-        self.start = start
-        self.goal = goal
-        self.INF = INF
-
-    def bfs(self):
-        self.dist = [self.INF] * self.size
-        self.dist[self.start] = 0
-        queue = [self.start]
+def max_flow(graph, s, t):
+    global INF
+    n = len(graph)
+    adj = [[] for _ in range(n)]
+    cap = [[0] * n for _ in range(n)]
+    for x in range(n):
+        for y in graph[x]:
+            adj[x].append(y)
+            adj[y].append(x)
+            cap[x][y] = graph[x][y]
+    res = 0
+    while True:
+        # bfs
+        level = [INF] * n
+        level[s] = 0
+        queue = [s]
         for x in queue:
-            for y in self.graph[x]:
-                if self.graph[x][y] == 0 or self.dist[y] < self.INF:
+            for y in adj[x]:
+                if cap[x][y] == 0 or level[y] < INF:
                     continue
-                self.dist[y] = self.dist[x] + 1
+                level[y] = level[x] + 1
                 queue.append(y)
-
-    def dfs(self, x, flow):
-        if x == self.goal:
-            return flow
-        for y in self.graph[x]:
-            capa = self.graph[x][y]
-            if capa == 0 or self.dist[x] >= self.dist[y] or y in self.checked[x]:
-                continue
-            self.checked[x].add(y)
-            f = self.dfs(y, min(flow, capa))
-            if f:
-                self.graph[x][y] -= f
-                self.graph[y][x] += f
-                return f
-        return 0
-
-    def max_flow(self):
-        res = 0
+        if level[t] == INF:
+            break
+        cur = [0] * n
         while True:
-            self.bfs()
-            if self.dist[self.goal] == self.INF:
-                return res
-            flow = self.INF
-            self.checked = [set() for _ in range(self.size)]
-            while flow:
-                flow = self.dfs(self.start, self.INF)
-                res += flow
+            # dfs
+            stack = [s]
+            prev = [None] * n
+            while stack:
+                x = stack[-1]
+                if x == t:
+                    break
+                for y in adj[x][cur[x] :]:
+                    if cap[x][y] == 0 or level[x] >= level[y]:
+                        cur[x] += 1
+                        continue
+                    stack.append(y)
+                    prev[y] = x
+                    break
+                else:
+                    stack.pop()
+                    level[x] = 0
+            else:
+                break
+            # 経路復元
+            f = INF
+            y = t
+            while y != s:
+                x = prev[y]
+                f = min(f, cap[x][y])
+                y = x
+            if f == 0:
+                break
+            # 残容量更新
+            y = t
+            while y != s:
+                x = prev[y]
+                cap[x][y] -= f
+                cap[y][x] += f
+                y = x
+            res += f
+    return res
 
 
 INF = 10 ** 10
@@ -62,16 +79,11 @@ for i in range(n):
         if (i + j) % 2:
             if s[i][j] == "B":
                 graph[start][x] = INF
-                graph[x][start] = 0
             if s[i][j] == "W":
                 graph[x][goal] = INF
-                graph[goal][x] = 0
         else:
             if s[i][j] == "W":
                 graph[start][x] = INF
-                graph[x][start] = 0
             if s[i][j] == "B":
                 graph[x][goal] = INF
-                graph[goal][x] = 0
-flow = Dinic(graph, start, goal).max_flow()
-print(n * (n - 1) * 2 - flow)
+print(n * (n - 1) * 2 - max_flow(graph, start, goal))
