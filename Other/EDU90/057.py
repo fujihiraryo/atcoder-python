@@ -1,0 +1,38 @@
+def count_solution(a, b):
+    global MOD
+    n, m = len(a), len(a[0])
+    r = 0
+    for j in range(m):
+        p = -1
+        for i in range(r, n):
+            if a[i][j]:
+                p = i
+                break
+        if p == -1:
+            continue
+        a[p][j], a[r][j] = a[r][j], a[p][j]
+        b[p], b[r] = b[r], b[p]
+        for i in range(n):
+            if i == r or not a[i][j]:
+                continue
+            for k in range(m):
+                a[i][k] ^= a[r][k]
+            b[i] ^= b[r]
+        r += 1
+    for i in range(n):
+        if all(a[i][j] == 0 for j in range(m)) and b[i]:
+            return 0
+
+    return pow(2, m - r, MOD)
+
+
+MOD = 998244353
+int0 = lambda x: int(x) - 1
+n, m = map(int, input().split())
+a = [[0] * n for _ in range(m)]
+for j in range(n):
+    input()
+    for i in map(int0, input().split()):
+        a[i][j] = 1
+b = list(map(int, input().split()))
+print(count_solution(a, b))
