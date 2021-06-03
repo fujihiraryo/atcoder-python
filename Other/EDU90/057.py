@@ -10,7 +10,7 @@ def count_solution(a, b):
                 break
         if p == -1:
             continue
-        a[p][j], a[r][j] = a[r][j], a[p][j]
+        a[p], a[r] = a[r], a[p]
         b[p], b[r] = b[r], b[p]
         for i in range(n):
             if i == r or not a[i][j]:
