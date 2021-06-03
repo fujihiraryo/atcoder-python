@@ -1,4 +1,4 @@
-def count_solution(a, b):
+def free_degree(a, b):
     global MOD
     n, m = len(a), len(a[0])
     r = 0
@@ -21,9 +21,8 @@ def count_solution(a, b):
         r += 1
     for i in range(n):
         if all(a[i][j] == 0 for j in range(m)) and b[i]:
-            return 0
-
-    return pow(2, m - r, MOD)
+            return -1
+    return m - r
 
 
 MOD = 998244353
@@ -35,4 +34,5 @@ for j in range(n):
     for i in map(int0, input().split()):
         a[i][j] = 1
 b = list(map(int, input().split()))
-print(count_solution(a, b))
+deg = free_degree(a, b)
+print(0 if deg == -1 else pow(2, deg, MOD))
