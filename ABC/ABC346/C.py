@@ -1,6 +1,8 @@
+from sortedcontainers import SortedSet
+
 n, k = map(int, input().split())
 (*a,) = map(int, input().split())
-s = set()
+s = SortedSet()
 for i in range(n):
     if a[i] <= k:
         s.add(a[i])
